@@ -34,34 +34,15 @@ public class SC_SpaceshipController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Dove si trova il mouse dallo schermo
-        lookInput.x = Input.mousePosition.y;
-        lookInput.y = Input.mousePosition.x;
-        
-        //Distanza del mouse dal centro dello schermo
-        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
-        mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.x;
-
-        mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
-
-        rollInput = Mathf.Lerp(rollInput, Input.GetAxis("Roll"), rollAcceleration * Time.deltaTime);
-        //Applicare rotazione
-        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, rollInput * rollSpeed * Time.deltaTime , Space.Self);
+        mouseMovement();
 
         // su e giu
         activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, Input.GetAxisRaw("Hover") * forwardSpeed, forwardAcceleration * Time.deltaTime);
         // accelerazione
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Vertical") * strafeSpeed, strafeAcceleration * Time.deltaTime);
         
-        //boost
         
-
-        /*if(boostInput == Input.GetAxisRaw("Boost"))
-        {
-            boosting = true;
-            activeStrafeSpeed = activeStrafeSpeed + maxBoostAmount;
-        };
-        */
+       // boost();
 
         // destra sinistra
         activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Horizontal") * hoverSpeed, hoverAcceleration * Time.deltaTime);
@@ -71,5 +52,37 @@ public class SC_SpaceshipController : MonoBehaviour
         
         
 
+    }
+
+    void mouseMovement()
+    {
+        //Dove si trova il mouse dallo schermo
+        lookInput.x = Input.mousePosition.y;
+        lookInput.y = Input.mousePosition.x;
+        
+        //Distanza del mouse dal centro dello schermo
+        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
+        mouseDistance.y = (lookInput.y - screenCenter.x) / screenCenter.x;
+
+        mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
+
+        rollInput = Mathf.Lerp(rollInput, Input.GetAxis("Roll"), rollAcceleration * Time.deltaTime);
+        //Applicare rotazione
+        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, rollInput * rollSpeed * Time.deltaTime , Space.Self);
+    }    
+
+    void boost()
+    {
+        if(Input.GetAxis("Boost")>0)
+        {
+            boosting = true;
+            forwardSpeed = boostSpeed;
+            strafeSpeed = boostSpeed;
+            hoverSpeed = boostSpeed;
+        }
+        else
+        {
+            boosting = false;
+        }
     }
  }
