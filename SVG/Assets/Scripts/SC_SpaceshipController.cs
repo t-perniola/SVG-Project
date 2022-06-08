@@ -19,13 +19,16 @@ public class SC_SpaceshipController : MonoBehaviour
     private float rollInput;
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
 
+    private float boostInput;
+    public float boostSpeed =60f, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f, boostMultiplier= 5f;
+    public bool boosting = false;    
+
     //Start is called before the first frame update
     void Start()
     {
         screenCenter.x = Screen.width * .5f;
         screenCenter.y= Screen.height * .5f;
 
-        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
@@ -36,8 +39,8 @@ public class SC_SpaceshipController : MonoBehaviour
         lookInput.y = Input.mousePosition.x;
         
         //Distanza del mouse dal centro dello schermo
-        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.y;
-        mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
+        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
+        mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.x;
 
         mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
 
@@ -49,6 +52,17 @@ public class SC_SpaceshipController : MonoBehaviour
         activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, Input.GetAxisRaw("Hover") * forwardSpeed, forwardAcceleration * Time.deltaTime);
         // accelerazione
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Vertical") * strafeSpeed, strafeAcceleration * Time.deltaTime);
+        
+        //boost
+        
+
+        /*if(boostInput == Input.GetAxisRaw("Boost"))
+        {
+            boosting = true;
+            activeStrafeSpeed = activeStrafeSpeed + maxBoostAmount;
+        };
+        */
+
         // destra sinistra
         activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Horizontal") * hoverSpeed, hoverAcceleration * Time.deltaTime);
         
