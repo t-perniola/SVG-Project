@@ -29,6 +29,8 @@ public class SC_SpaceshipController : MonoBehaviour
         screenCenter.x = Screen.width * .5f;
         screenCenter.y= Screen.height * .5f;
 
+        //Cursor.lockState = CursorLockMode.Confined;
+
     }
 
     // Update is called once per frame
@@ -61,7 +63,7 @@ public class SC_SpaceshipController : MonoBehaviour
         lookInput.y = Input.mousePosition.x;
         
         //Distanza del mouse dal centro dello schermo
-        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
+        mouseDistance.x = (lookInput.x - screenCenter.y) / screenCenter.x;
         mouseDistance.y = (lookInput.y - screenCenter.x) / screenCenter.x;
 
         mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
@@ -85,4 +87,35 @@ public class SC_SpaceshipController : MonoBehaviour
             boosting = false;
         }
     }
+
+    /* Collider script
+    *Add a Rigidbody component, then replace:
+        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
+        transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
+*with this (in a Fixed Update):
+        Vector3 forward = transform.forward * activeForwardSpeed * Time.fixedDeltaTime;
+        Vector3 strafe = transform.right * activeStrafeSpeed * Time.fixedDeltaTime;
+        Vector3 hover = transform.up * activeHoverSpeed * Time.fixedDeltaTime;
+
+        Vector3 movement = forward + strafe + hover;
+        gameObject.GetComponent<Rigidbody>().MovePosition(transform.position + movement);
+
+          void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(Collide());
+    }
+
+    IEnumerator Collide()
+    {
+        inputBlocked = true;
+
+        activeForwardSpeed = -activeForwardSpeed;
+        activeRightSpeed = -activeRightSpeed;
+        activeUpSpeed = -activeUpSpeed;
+
+        yield return new WaitForSeconds(recoverTime);
+
+        inputBlocked = false;
+    }
+    */
  }
