@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-
 public class SC_SpaceshipController : MonoBehaviour
 {
+    [SerializeField]Trail[] trail;
     // forward = su e giu, strafe = lateralmente, hover= avanti e dietro
     public float forwardSpeed = 20f;
     public float strafeSpeed = 20f;
@@ -22,14 +22,15 @@ public class SC_SpaceshipController : MonoBehaviour
     private float boostInput;
     public float boostSpeed =60f, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f, boostMultiplier= 5f;
     public bool boosting = false;    
-
+    
+    
     //Start is called before the first frame update
     void Start()
     {
         screenCenter.x = Screen.width * .5f;
         screenCenter.y= Screen.height * .5f;
-
-        //Cursor.lockState = CursorLockMode.Confined;
+        boosting = false;
+        Cursor.lockState = CursorLockMode.Confined;
 
     }
 
@@ -44,7 +45,28 @@ public class SC_SpaceshipController : MonoBehaviour
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Vertical") * strafeSpeed, strafeAcceleration * Time.deltaTime);
         
         
-       // boost();
+        if(Input.GetAxis("Boost")>0) {
+            boost();
+            /*foreach(Light l in trail)
+            {
+                l.LightBoost(boosting);
+            }
+            */
+        }
+        else
+        {
+            boosting = false;
+            /*
+            foreach(Light l in trail)
+            {
+                l.LightBoost(boosting);
+            }
+            */
+            forwardSpeed = 20f;
+            strafeSpeed = 20f;
+            hoverSpeed = 20f;
+        }
+        
 
         // destra sinistra
         activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Horizontal") * hoverSpeed, hoverAcceleration * Time.deltaTime);
@@ -73,7 +95,7 @@ public class SC_SpaceshipController : MonoBehaviour
         transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, rollInput * rollSpeed * Time.deltaTime , Space.Self);
     }    
 
-    void boost()
+    public void boost()
     {
         if(Input.GetAxis("Boost")>0)
         {
