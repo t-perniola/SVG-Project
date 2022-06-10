@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour
     [SerializeField]GameObject explosion;
     [SerializeField]Rigidbody rigidBody;
     [SerializeField]float destroyTime = 6f;
+    [SerializeField]float laserHitModifier = 10f;
     //Quaternion usato per identificare rotazioni
     public void IveBeenHit(Vector3 pos)
     {
@@ -24,10 +25,13 @@ public class Explosion : MonoBehaviour
 
     public void AddForce(Vector3 hitPosition, Transform hitSource)
     {
+        Debug.LogWarning("AddForce: " + gameObject.name + " -> " + hitSource.name);
         if(rigidBody == null)
             return;
-        Vector3 direction = hitSource.position - hitPosition;
-        rigidBody.AddForceAtPosition(direction.normalized, hitPosition);
+           
+        Vector3 forceVector = (hitSource.position - hitPosition).normalized;
+        Debug.Log(forceVector * laserHitModifier);
+        rigidBody.AddForceAtPosition(forceVector.normalized * laserHitModifier, hitPosition, ForceMode.Impulse);
     }
 }
  

@@ -10,7 +10,7 @@ public class SC_SpaceshipController : MonoBehaviour
     public float forwardSpeed = 20f;
     public float strafeSpeed = 20f;
     public float hoverSpeed = 20f;
-    private float activeForwardSpeed, activeStrafeSpeed, activeHoverSpeed, activeUpSpeed, activeRightSpeed, recoverTime; 
+    private float activeForwardSpeed, activeStrafeSpeed, activeHoverSpeed, activeUpSpeed, activeRightSpeed, recoverTime = 1f; 
     private float forwardAcceleration = 2.5f, strafeAcceleration = 2f, hoverAcceleration = 2f;
 
     public float lookRateSpeed = 90f;
