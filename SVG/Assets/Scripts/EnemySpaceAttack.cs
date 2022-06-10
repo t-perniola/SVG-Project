@@ -10,6 +10,9 @@ public class EnemySpaceAttack : MonoBehaviour
     Vector3 hitPosition;
     
     void Update(){
+        if(!FindTarget()){
+            return;
+        }
         InFront();
         HaveLineOfSight();
         if(InFront() && HaveLineOfSight())
@@ -55,5 +58,22 @@ public class EnemySpaceAttack : MonoBehaviour
     {
         Debug.Log("Fire Lasers!!!!");
         laser.FireLaser(hitPosition, target);
+    }
+
+    bool FindTarget()
+    {
+        if( target == null)
+            {
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+        if( target == null)
+            {
+                return false;
+            }
+        else
+            {
+                return true;
+            }
+        
     }
 }

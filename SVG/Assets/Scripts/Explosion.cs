@@ -9,11 +9,22 @@ public class Explosion : MonoBehaviour
     [SerializeField]Rigidbody rigidBody;
     [SerializeField]float destroyTime = 6f;
     [SerializeField]float laserHitModifier = 10f;
+    [SerializeField]Shield shield;
+    
     //Quaternion usato per identificare rotazioni
-    public void IveBeenHit(Vector3 pos)
+    void IveBeenHit(Vector3 pos)
     {
         GameObject go = Instantiate(explosion, pos, Quaternion.identity, transform) as GameObject;
         Destroy(go, destroyTime);
+
+        if(shield == null)
+        {
+            return;
+        }
+        else
+        {
+            shield.TakeDamage();
+        }
     }
 
     //Spostamento alla collisione
@@ -25,6 +36,7 @@ public class Explosion : MonoBehaviour
 
     public void AddForce(Vector3 hitPosition, Transform hitSource)
     {
+        IveBeenHit(hitPosition);
         Debug.LogWarning("AddForce: " + gameObject.name + " -> " + hitSource.name);
         if(rigidBody == null)
             return;

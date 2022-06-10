@@ -7,16 +7,20 @@ public class EnemySpaceMovement : MonoBehaviour
     [SerializeField]Transform target;
     [SerializeField]float movementSpeed = 10f;
     [SerializeField]float rotationalDamp = .5f;
-    [SerializeField]float detectionDistance = 20f;
+    [SerializeField]float detectionDistance = 25f;
     
 
 
 
     void Update()
     {   
+        if(!FindTarget()){
+            return;
+        }
+            
         Pathfinding();
-        //Turn();
         Move();
+
     }
 
     void Turn()
@@ -75,6 +79,23 @@ public class EnemySpaceMovement : MonoBehaviour
         {
             Turn();
         }
+    }
+
+    bool FindTarget()
+    {
+        if( target == null)
+            {
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+        if( target == null)
+            {
+                return false;
+            }
+        else
+            {
+                return true;
+            }
+        
     }
 }
 
