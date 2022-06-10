@@ -13,5 +13,12 @@ public class Explosion : MonoBehaviour
         GameObject go = Instantiate(explosion, pos, Quaternion.identity, transform) as GameObject;
         Destroy(go, destroyTime);
     }
+
+    //Spostamento alla collisione
+    void OnCollisionEnter(Collision collision)
+    {
+        foreach(ContactPoint contact in collision.contacts)
+            IveBeenHit(contact.point);
+    }
 }
  

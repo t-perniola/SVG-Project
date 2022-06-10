@@ -42,13 +42,8 @@ public class Laser : MonoBehaviour{
         {
             Debug.Log("We hit: " + hit.transform.name);
 
-            Explosion temp = hit.transform.GetComponent<Explosion>();
-            if(temp != null)
-            {
-             temp.IveBeenHit(hit.point);  
-            }
-            
-            
+            SpawnExplosion(hit.point, hit.transform);
+
             return hit.point;
         } else {
             Debug.Log("We missed....");
@@ -56,10 +51,34 @@ public class Laser : MonoBehaviour{
             
         return transform.position + (transform.forward * maxDistance);
     }
+
+    //Se colpisce qualcosa -> animazione esplosione
+    void SpawnExplosion(Vector3 hitPosition, Transform target)
+    {
+        Explosion temp = target.GetComponent<Explosion>();
+            if(temp != null)
+            {
+             temp.IveBeenHit(hitPosition);  
+            }
+    }
+
+    //Laser navicella giocatore
     public void FireLaser()
+    {
+        Vector3 pos = CastRay();
+        FireLaser(pos);
+        //FireLaser(CastRay());
+     
+    }
+
+    //Nemico ci vede e spara + null parameter
+    public void FireLaser(Vector3 targetPosition, Transform target = null)
     {
         if(canFire)
         {
+            if(target != null)
+                SpawnExplosion(targetPosition, target);
+             
             lr.SetPosition(0, transform.position);
             lr.SetPosition(1, CastRay());
             lr.enabled = true;
@@ -68,8 +87,7 @@ public class Laser : MonoBehaviour{
             Invoke("TurnOffLaser", laserOffline);
             Invoke("CanFire", fireDelay);
         }
-
-        
+     
     }
 
     void TurnOffLaser()
