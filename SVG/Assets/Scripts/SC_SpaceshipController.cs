@@ -10,7 +10,7 @@ public class SC_SpaceshipController : MonoBehaviour
     public float forwardSpeed = 20f;
     public float strafeSpeed = 20f;
     public float hoverSpeed = 20f;
-    private float activeForwardSpeed, activeStrafeSpeed, activeHoverSpeed; 
+    private float activeForwardSpeed, activeStrafeSpeed, activeHoverSpeed, activeUpSpeed, activeRightSpeed, recoverTime; 
     private float forwardAcceleration = 2.5f, strafeAcceleration = 2f, hoverAcceleration = 2f;
 
     public float lookRateSpeed = 90f;
@@ -21,7 +21,9 @@ public class SC_SpaceshipController : MonoBehaviour
 
     private float boostInput;
     public float boostSpeed =60f, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f, boostMultiplier= 5f;
-    public bool boosting = false;    
+    public bool boosting = false; 
+    public bool inputBlocked = false;
+
     
     
     //Start is called before the first frame update
@@ -77,6 +79,21 @@ public class SC_SpaceshipController : MonoBehaviour
         
 
     }
+    public void FixedUpdate()
+    {
+        Vector3 forward = transform.forward * activeForwardSpeed * Time.fixedDeltaTime;
+        Vector3 strafe = transform.right * activeStrafeSpeed * Time.fixedDeltaTime;
+        Vector3 hover = transform.up * activeHoverSpeed * Time.fixedDeltaTime;
+
+        Vector3 movement = forward + strafe + hover;
+        gameObject.GetComponent<Rigidbody>().MovePosition(transform.position + movement);
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(Collide());
+    }
+    
 
     void mouseMovement()
     {
@@ -110,22 +127,7 @@ public class SC_SpaceshipController : MonoBehaviour
         }
     }
 
-    /* Collider script
-    *Add a Rigidbody component, then replace:
-        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
-        transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
-*with this (in a Fixed Update):
-        Vector3 forward = transform.forward * activeForwardSpeed * Time.fixedDeltaTime;
-        Vector3 strafe = transform.right * activeStrafeSpeed * Time.fixedDeltaTime;
-        Vector3 hover = transform.up * activeHoverSpeed * Time.fixedDeltaTime;
-
-        Vector3 movement = forward + strafe + hover;
-        gameObject.GetComponent<Rigidbody>().MovePosition(transform.position + movement);
-
-          void OnTriggerEnter(Collider other)
-    {
-        StartCoroutine(Collide());
-    }
+    
 
     IEnumerator Collide()
     {
@@ -139,5 +141,5 @@ public class SC_SpaceshipController : MonoBehaviour
 
         inputBlocked = false;
     }
-    */
+    
  }
