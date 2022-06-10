@@ -1366,6 +1366,7 @@ GameObject:
   - component: {fileID: 1426370257}
   - component: {fileID: 1426370260}
   - component: {fileID: 1426370261}
+  - component: {fileID: 1426370262}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -1461,7 +1462,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 2103537734369845641, guid: 7d7bc3112ba20db4c81078eb8d42efcb, type: 3}
+  rigidBody: {fileID: 1426370258}
   destroyTime: 6
+--- !u!65 &1426370262
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426370256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1457069579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193c45ad372e8304faaeb28588d5c56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
+  explosion: {fileID: 2103537734369845641, guid: 7d7bc3112ba20db4c81078eb8d42efcb, type: 3}
+  rigidBody: {fileID: 0}
   destroyTime: 6
 --- !u!1001 &1637086220
 PrefabInstance:
