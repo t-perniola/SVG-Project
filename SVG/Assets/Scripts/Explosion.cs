@@ -8,7 +8,7 @@ public class Explosion : MonoBehaviour
     [SerializeField]GameObject explosion;
     [SerializeField]Rigidbody rigidBody;
     [SerializeField]float destroyTime = 6f;
-    [SerializeField]float laserHitModifier = 10f;
+    [SerializeField]float laserHitModifier = 2f;
     [SerializeField]Shield shield;
     
     //Quaternion usato per identificare rotazioni

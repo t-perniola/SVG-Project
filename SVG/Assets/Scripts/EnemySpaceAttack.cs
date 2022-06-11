@@ -6,9 +6,13 @@ public class EnemySpaceAttack : MonoBehaviour
 {
     [SerializeField]Transform target;
     [SerializeField]Laser laser;
+    [SerializeField]int distanceShip = 30;
 
     Vector3 hitPosition;
-    
+    Vector3 hitPositionrandom;
+    float timePassed = 0f;
+    public float innaccuracy = 0.9f;
+
     void Update(){
         if(!FindTarget()){
             return;
@@ -19,8 +23,35 @@ public class EnemySpaceAttack : MonoBehaviour
         {
             FireLaser();
             Debug.Log("fire laser");
+        } else
+        {
+            timePassed += Time.deltaTime;
+          if (timePassed > 5f)
+            {
+                 if (CloseEnought())
+                  {
+                    hitPositionrandom = Random.insideUnitSphere * innaccuracy;
+                    Debug.Log("fire laser random");
+                    FireLaser(hitPositionrandom);
+                    
+                    timePassed = 0f;
+                  }
+            }
         }
     }
+
+     bool CloseEnought()
+    {
+        if(Vector3.Distance(transform.position, target.position) < distanceShip)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     bool InFront()
     {
         //Direzione fra il nemico e la navicella
@@ -60,6 +91,13 @@ public class EnemySpaceAttack : MonoBehaviour
         laser.FireLaser(hitPosition, target);
     }
 
+    void FireLaser(Vector3 hitPositionR)
+    {
+        Debug.Log("Fire Lasers random!!!!");
+        laser.FireLaser(hitPositionR, target);
+    }
+
+
     bool FindTarget()
     {
         if( target == null)
@@ -76,4 +114,6 @@ public class EnemySpaceAttack : MonoBehaviour
             }
         
     }
+
+    
 }

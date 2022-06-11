@@ -1162,7 +1162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732714173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.912468, y: -5.4226007, z: -147.44513}
+  m_LocalPosition: {x: -57.912468, y: -5.4226007, z: 400}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2076,7 +2076,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426370256}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 50
   m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -2132,7 +2132,7 @@ MonoBehaviour:
   explosion: {fileID: 2103537734369845641, guid: 7d7bc3112ba20db4c81078eb8d42efcb, type: 3}
   rigidBody: {fileID: 1426370258}
   destroyTime: 6
-  laserHitModifier: 10
+  laserHitModifier: 1
   shield: {fileID: 1426370263}
 --- !u!65 &1426370262
 BoxCollider:
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   curHealth: 0
-  regenerationRate: 0.5
+  regenerationRate: 0.61
   regenerateAmount: 1
 --- !u!1 &1457069579
 GameObject:
@@ -2453,6 +2453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1815711503}
+  - component: {fileID: 1815711504}
   m_Layer: 5
   m_Name: ShieldUI
   m_TagString: Untagged
@@ -2481,6 +2482,19 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: 50}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1815711504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815711502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992241fd57c6d346bafb8a54610a955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barRectTransform: {fileID: 619079093}
 --- !u!1 &1830952615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,7 +2525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830952615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -121.2}
+  m_LocalPosition: {x: 0, y: 0, z: 410.66}
   m_LocalScale: {x: 1.3, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 428612428}
@@ -2548,6 +2562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1426370259}
   laser: {fileID: 657844918}
+  distanceShip: 30
+  innaccuracy: 100
 --- !u!54 &1830952619
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2595,7 +2611,7 @@ MonoBehaviour:
   explosion: {fileID: 2103537734369845641, guid: 7d7bc3112ba20db4c81078eb8d42efcb, type: 3}
   rigidBody: {fileID: 1830952619}
   destroyTime: 6
-  laserHitModifier: 10
+  laserHitModifier: 3
   shield: {fileID: 1830952620}
 --- !u!65 &1830952622
 BoxCollider:
