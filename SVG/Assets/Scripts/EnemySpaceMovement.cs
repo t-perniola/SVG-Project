@@ -7,7 +7,8 @@ public class EnemySpaceMovement : MonoBehaviour
     [SerializeField]Transform target;
     [SerializeField]float movementSpeed = 10f;
     [SerializeField]float rotationalDamp = .5f;
-    [SerializeField]float detectionDistance = 25f;
+    [SerializeField]float detectionDistance = 30f;
+    [SerializeField]float followingDistance = 35f;
     
 
     void OnEnable()
@@ -22,13 +23,22 @@ public class EnemySpaceMovement : MonoBehaviour
 
     void Update()
     {   
-        if(!FindTarget()){
+        float distance = Vector3.Distance(target.position,transform.position);
+        if(distance > followingDistance)
+        {
+           if(!FindTarget()){
             return;
         }
             
         Pathfinding();
         Move();
-
+ 
+        }
+        else
+        {
+            return;
+        }
+        
     }
 
     void Turn()
