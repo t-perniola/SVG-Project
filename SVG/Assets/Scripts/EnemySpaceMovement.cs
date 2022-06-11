@@ -10,7 +10,15 @@ public class EnemySpaceMovement : MonoBehaviour
     [SerializeField]float detectionDistance = 25f;
     
 
+    void OnEnable()
+    {
+        EventManager.onSpaceFightGame += Update;
+    }
 
+    void OnDisable()
+    {
+        EventManager.onSpaceFightGame -= Update;
+    }
 
     void Update()
     {   
@@ -72,7 +80,7 @@ public class EnemySpaceMovement : MonoBehaviour
 
         if(raycastOffset != Vector3.zero)
         {
-            Debug.Log("Il nemico ha qualcosa davanti");
+            //Debug.Log("Il nemico ha qualcosa davanti");
            transform.Rotate(raycastOffset * 5f * Time.deltaTime);
         }
         else

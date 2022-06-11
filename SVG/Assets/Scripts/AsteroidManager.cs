@@ -11,7 +11,17 @@ public class AsteroidManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlaceAsteroids();
+        //PlaceAsteroids();
+    }
+
+    void OnEnable()
+    {
+        EventManager.onSpaceFightGame += PlaceAsteroids;
+    }
+
+    void OnDisable()
+    {
+        EventManager.onSpaceFightGame -= PlaceAsteroids;
     }
 
     void PlaceAsteroids()
