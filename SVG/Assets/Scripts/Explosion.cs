@@ -6,6 +6,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField]GameObject explosion;
+    [SerializeField]GameObject blowUp;
     [SerializeField]Rigidbody rigidBody;
     [SerializeField]float destroyTime = 6f;
     [SerializeField]float laserHitModifier = 2f;
@@ -44,6 +45,17 @@ public class Explosion : MonoBehaviour
         Vector3 forceVector = (hitSource.position - hitPosition).normalized;
         Debug.Log(forceVector * laserHitModifier);
         rigidBody.AddForceAtPosition(forceVector.normalized * laserHitModifier, hitPosition, ForceMode.Impulse);
+    }
+
+
+    public void BlowUp()
+    {
+        //richiama effetto esplosione
+        Instantiate(blowUp, transform.position, Quaternion.identity);
+        //aggiungi punteggio se richiesto (da fare in enemy script)
+        //autodistruzione
+        Destroy(gameObject);
+
     }
 }
  

@@ -19,13 +19,16 @@ public class Shield : MonoBehaviour
     void Regenerate()
     {
         if(curHealth < maxHealth)
-        curHealth += regenerateAmount;
-
+        {
+            curHealth += regenerateAmount;
+        }
         if(curHealth > maxHealth)
         {
             curHealth = maxHealth;
             CancelInvoke();
         }
+
+        EventManager.TakingDamage(curHealth / (float)maxHealth);
     }
 
     public void TakeDamage(int dmg = 1)
@@ -37,7 +40,12 @@ public class Shield : MonoBehaviour
     }
     EventManager.TakingDamage(curHealth / (float)maxHealth);
     if(curHealth < 1)
+    {   
+        GetComponent<Explosion>().BlowUp();
+        //remove life from counter 
         Debug.Log("I died");
+    }
+        
     }
 
 

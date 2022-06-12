@@ -42,9 +42,9 @@ public class SC_SpaceshipController : MonoBehaviour
         mouseMovement();
 
         // su e giu
-        activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, Input.GetAxisRaw("Hover") * forwardSpeed, forwardAcceleration * Time.deltaTime);
+        activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, Input.GetAxisRaw("Vertical") * forwardSpeed, forwardAcceleration * Time.deltaTime);
         // accelerazione
-        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Vertical") * strafeSpeed, strafeAcceleration * Time.deltaTime);
+        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") * strafeSpeed, strafeAcceleration * Time.deltaTime);
         
         
         if(Input.GetAxis("Boost")>0) {
@@ -71,7 +71,7 @@ public class SC_SpaceshipController : MonoBehaviour
         
 
         // destra sinistra
-        activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Horizontal") * hoverSpeed, hoverAcceleration * Time.deltaTime);
+        activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Hover") * hoverSpeed, hoverAcceleration * Time.deltaTime);
         
         transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime);
         transform.position += (transform.up * activeHoverSpeed * Time.deltaTime) + (transform.forward * activeForwardSpeed * Time.deltaTime);
@@ -98,12 +98,12 @@ public class SC_SpaceshipController : MonoBehaviour
     void mouseMovement()
     {
         //Dove si trova il mouse dallo schermo
-        lookInput.x = Input.mousePosition.y;
-        lookInput.y = Input.mousePosition.x;
+        lookInput.x = Input.mousePosition.x;
+        lookInput.y = Input.mousePosition.y;
         
         //Distanza del mouse dal centro dello schermo
-        mouseDistance.x = (lookInput.x - screenCenter.y) / screenCenter.x;
-        mouseDistance.y = (lookInput.y - screenCenter.x) / screenCenter.x;
+        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.y;
+        mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
 
         mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
 
