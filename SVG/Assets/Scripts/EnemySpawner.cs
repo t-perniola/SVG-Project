@@ -16,14 +16,14 @@ public class EnemySpawner : MonoBehaviour
     void OnEnable()
     {   
         EventManager.onSpaceFightGame += StartSpawning;
-        EventManager.onPlayerDeath += StopSpawning;
+        //EventManager.onPlayerDeath += StopSpawning;
     }
 
        void OnDisable()
     {
         StopSpawning();
         EventManager.onSpaceFightGame -= StartSpawning;
-        EventManager.onPlayerDeath -= StopSpawning;
+        //EventManager.onPlayerDeath -= StopSpawning;
     }
 
     void SpawnEnemy()
