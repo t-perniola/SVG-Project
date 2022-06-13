@@ -27,8 +27,12 @@ public class Shield : MonoBehaviour
             curHealth = maxHealth;
             CancelInvoke();
         }
-
-        EventManager.TakingDamage(curHealth / (float)maxHealth);
+        
+        if(GameObject.FindGameObjectWithTag("Player"))
+        {
+            EventManager.TakingDamage(curHealth / (float)maxHealth);   
+        }
+        
     }
 
     public void TakeDamage(int dmg = 1)
@@ -37,6 +41,9 @@ public class Shield : MonoBehaviour
     if(curHealth < 0)
     {
         curHealth = 0;
+    }
+    if(GameObject.FindGameObjectWithTag("Player")){
+     EventManager.TakingDamage(curHealth / (float)maxHealth);  
     }
     EventManager.TakingDamage(curHealth / (float)maxHealth);
     if(curHealth < 1)

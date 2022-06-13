@@ -20,12 +20,21 @@ public class SC_SpaceshipController : MonoBehaviour
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
 
     private float boostInput;
-    public float boostSpeed =60f, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f, boostMultiplier= 5f;
+    public float boostSpeed =60f, boostTimer = 0, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f;
     public bool boosting = false; 
     public bool inputBlocked = false;
 
     
-    
+    void OnEnable()
+    {
+        EventManager.onSpaceFightGame += Update;
+    }
+
+    void OnDisable()
+    {
+        EventManager.onSpaceFightGame -= Update;
+    }
+   
     //Start is called before the first frame update
     void Start()
     {
@@ -48,25 +57,16 @@ public class SC_SpaceshipController : MonoBehaviour
         
         
         if(Input.GetAxis("Boost")>0) {
+            boosting = true;
             boost();
-            /*foreach(Light l in trail)
-            {
-                l.LightBoost(boosting);
-            }
-            */
         }
         else
         {
             boosting = false;
-            /*
-            foreach(Light l in trail)
-            {
-                l.LightBoost(boosting);
-            }
-            */
             forwardSpeed = 20f;
             strafeSpeed = 20f;
             hoverSpeed = 20f;
+            boostTimer = 0;
         }
         
 
@@ -114,12 +114,24 @@ public class SC_SpaceshipController : MonoBehaviour
 
     public void boost()
     {
-        if(Input.GetAxis("Boost")>0)
+        if(boosting == true)
         {
-            boosting = true;
-            forwardSpeed = boostSpeed;
-            strafeSpeed = boostSpeed;
-            hoverSpeed = boostSpeed;
+            boostTimer += Time.deltaTime;
+            if(boostTimer <= 3)
+            {
+                boosting = true;
+                forwardSpeed = boostSpeed;
+                strafeSpeed = boostSpeed;
+                hoverSpeed = boostSpeed; 
+            }
+            else
+            {
+                boosting = false;
+            forwardSpeed = 20f;
+            strafeSpeed = 20f;
+            hoverSpeed = 20f;
+            }
+            
         }
         else
         {

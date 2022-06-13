@@ -10,6 +10,18 @@ public class Asteroid : MonoBehaviour
     Transform myT;
     Vector3 randomRotation;
 
+
+    void OnEnable()
+    {
+        EventManager.onSpaceFightGame += Start;
+    }
+
+    void OnDisable()
+    {
+        EventManager.onSpaceFightGame -= Start;
+    }
+
+
     void Awake()
     {
         myT = transform;

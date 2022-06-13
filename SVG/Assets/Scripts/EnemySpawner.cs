@@ -6,21 +6,24 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]GameObject enemyPrefab;
     [SerializeField]float spawnTimer = 5f;
-
+    [SerializeField]int maxEnemy = 5;
+    int enemyCounter = 0;
     void Start()
     {
       //  StartSpawning();
     }
 
     void OnEnable()
-    {
+    {   
         EventManager.onSpaceFightGame += StartSpawning;
+        EventManager.onPlayerDeath += StopSpawning;
     }
 
        void OnDisable()
     {
         StopSpawning();
         EventManager.onSpaceFightGame -= StartSpawning;
+        EventManager.onPlayerDeath -= StopSpawning;
     }
 
     void SpawnEnemy()
@@ -36,6 +39,6 @@ public class EnemySpawner : MonoBehaviour
 
     void StartSpawning()
     {
-        InvokeRepeating("SpawnEnemy", spawnTimer, spawnTimer);
+            InvokeRepeating("SpawnEnemy", spawnTimer, spawnTimer);      
     }
 }

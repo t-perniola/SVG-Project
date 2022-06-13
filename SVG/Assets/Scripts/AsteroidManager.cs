@@ -37,6 +37,22 @@ public class AsteroidManager : MonoBehaviour
             }
         }
     }
+    /*
+    void SelfDestruct()
+    {
+        Destroy(gameObject);
+    }
+
+
+    void DestroyAsteroids()
+    {
+        foreach(Asteroid ast in asteroid)
+        {
+            ast.SelfDestruct();
+        }
+        asteroid.clear();
+    }
+    */
 
     void InstantiateAsteroid(int x, int y, int z)
     {

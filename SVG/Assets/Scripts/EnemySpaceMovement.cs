@@ -13,12 +13,20 @@ public class EnemySpaceMovement : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.onSpaceFightGame += Update;
+        EventManager.onSpaceFightGame  += Update;
+        EventManager.onPlayerDeath += FindMainCamera;
     }
 
     void OnDisable()
+    {   
+        EventManager.onSpaceFightGame  -= Update;
+        EventManager.onPlayerDeath -= FindMainCamera;
+        
+    }
+
+    void SelfDestruct()
     {
-        EventManager.onSpaceFightGame -= Update;
+        Destroy(gameObject);
     }
 
     void Update()
@@ -119,6 +127,11 @@ public class EnemySpaceMovement : MonoBehaviour
                 return true;
             }
         
+    }
+
+    void FindMainCamera()
+    {
+        target = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 }
 

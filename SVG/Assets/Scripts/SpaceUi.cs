@@ -20,15 +20,6 @@ public class SpaceUi : MonoBehaviour
     {
         isDisplayed = !isDisplayed;
         playButton.SetActive(isDisplayed);
-
-        if(isDisplayed)
-        {
-            playButton.SetActive(false);
-        }
-        else
-        {
-            playButton.SetActive(true);
-        }
     }
 
     public void PlayGame()
