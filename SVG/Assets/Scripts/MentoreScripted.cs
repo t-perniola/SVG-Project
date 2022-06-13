@@ -33,12 +33,12 @@ public class MentoreScripted : MonoBehaviour{
     }
 
     void FixedUpdate() { //FixedUpdate is faster than Update while working with physics
-
-        if(isMpressed) {
-            direction = transform.position - target.position; //distance between this object and his target (a connecting line)            
-            angle = Vector3.Angle(-transform.forward, direction);  //calculates the angle between the line that connect the two objects
-                                                                // and the z-axis of this object (negative bc in game the drone rotates)
-            Debug.Log("angle: " + angle);            
+       
+        direction = target.position - transform.position; //distance between this object and his target (a connecting line)            
+        angle = Vector3.Angle(transform.forward, direction);  //calculates the angle between the line that connect the two objects
+                                                                // and the z-axis of this object         
+        if(isMpressed) {            
+                     
             if (angle < checkAngle ) {  //if the angle calc. is lower than a prefixed number...   
                 isInFrontOf = true;
                 //Debug.Log("Mentore is in front of the Player!");
