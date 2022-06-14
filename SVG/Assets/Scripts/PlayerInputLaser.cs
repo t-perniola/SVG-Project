@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInputLaser : MonoBehaviour
 {
     [SerializeField]Laser[] laser;
     // Update is called once per frame
