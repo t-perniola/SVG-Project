@@ -34,9 +34,10 @@ public class MentoreScripted : MonoBehaviour{
 
     void FixedUpdate() { //FixedUpdate is faster than Update while working with physics
        
-        direction = target.position - transform.position; //distance between this object and his target (a connecting line)            
-        angle = Vector3.Angle(transform.forward, direction);  //calculates the angle between the line that connect the two objects
+        direction = transform.position - target.position; //distance between this object and his target (a connecting line)            
+        angle = Vector3.Angle(transform.up, direction);  //calculates the angle between the line that connect the two objects
                                                                 // and the z-axis of this object         
+        Debug.Log("angle is: " + angle);
         if(isMpressed) {            
                      
             if (angle < checkAngle ) {  //if the angle calc. is lower than a prefixed number...   
