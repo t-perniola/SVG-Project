@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SC_SpaceshipController : MonoBehaviour
 {
-    [SerializeField]Trail[] trail;
+    
     // forward = su e giu, strafe = lateralmente, hover= avanti e dietro
     public float forwardSpeed = 20f;
     public float strafeSpeed = 20f;
@@ -20,9 +20,12 @@ public class SC_SpaceshipController : MonoBehaviour
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
 
     private float boostInput;
-    public float boostSpeed =60f, boostTimer = 0, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f;
+    public float boostSpeed =60f, boostTimer = 0, boostTimerElapsed = 0, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f;
     public bool boosting = false; 
     public bool inputBlocked = false;
+    [SerializeField]BoostLight[] boostLight;
+     
+    
 
     
     void OnEnable()
@@ -58,15 +61,22 @@ public class SC_SpaceshipController : MonoBehaviour
         
         if(Input.GetAxis("Boost")>0) {
             boosting = true;
+            boostTimerElapsed += Time.deltaTime;
             boost();
+            
         }
         else
         {
+            foreach (BoostLight bl in boostLight)
+                {
+                    bl.Activate(false);
+                }
             boosting = false;
             forwardSpeed = 20f;
             strafeSpeed = 20f;
             hoverSpeed = 20f;
             boostTimer = 0;
+            boostTimerElapsed += Time.deltaTime;
         }
         
 
@@ -113,13 +123,17 @@ public class SC_SpaceshipController : MonoBehaviour
     }    
 
     public void boost()
-    {
+    { 
         if(boosting == true)
         {
             boostTimer += Time.deltaTime;
-            if(boostTimer <= 3)
+            if(boostTimer <= 2 && boostTimerElapsed > 4)
             {
                 boosting = true;
+                foreach (BoostLight bl in boostLight)
+                {
+                    bl.Activate();
+                }
                 forwardSpeed = boostSpeed;
                 strafeSpeed = boostSpeed;
                 hoverSpeed = boostSpeed; 
@@ -130,6 +144,14 @@ public class SC_SpaceshipController : MonoBehaviour
             forwardSpeed = 20f;
             strafeSpeed = 20f;
             hoverSpeed = 20f;
+            foreach (BoostLight bl in boostLight)
+                {
+                    bl.Activate(false);
+                }
+            if(boostTimerElapsed > 4)
+            {
+              boostTimerElapsed = 0;  
+            }
             }
             
         }
@@ -154,4 +176,6 @@ public class SC_SpaceshipController : MonoBehaviour
         inputBlocked = false;
     }
     
+   
+
  }

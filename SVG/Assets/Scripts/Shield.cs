@@ -28,7 +28,7 @@ public class Shield : MonoBehaviour
             CancelInvoke();
         }
         
-        if(GameObject.FindGameObjectWithTag("Player"))
+        if(GameObject.FindWithTag("Player"))
         {
             EventManager.TakingDamage(curHealth / (float)maxHealth);   
         }
@@ -42,10 +42,10 @@ public class Shield : MonoBehaviour
     {
         curHealth = 0;
     }
-    if(GameObject.FindGameObjectWithTag("Player")){
+    if(GameObject.FindWithTag("Player")){
      EventManager.TakingDamage(curHealth / (float)maxHealth);  
     }
-    EventManager.TakingDamage(curHealth / (float)maxHealth);
+    
     if(curHealth < 1)
     {   
         GetComponent<Explosion>().BlowUp();

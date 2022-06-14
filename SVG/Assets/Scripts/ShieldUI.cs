@@ -25,6 +25,10 @@ public class ShieldUI : MonoBehaviour
 
     void UpdateShieldDisplay(float percentage)
     {
-        barRectTransform.sizeDelta = new Vector2(maxWidth * percentage, 50f);
+        if(GameObject.FindWithTag("Player"))
+        {
+          barRectTransform.sizeDelta = new Vector2(maxWidth * percentage, 50f);     
+        }
+        
     }
 }

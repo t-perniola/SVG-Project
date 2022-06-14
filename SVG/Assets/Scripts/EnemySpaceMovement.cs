@@ -33,15 +33,16 @@ public class EnemySpaceMovement : MonoBehaviour
     {   
         float distance = Vector3.Distance(target.position,transform.position);
         if(distance > followingDistance)
-        {
-           if(!FindTarget()){
-            return;
-        }
+        { 
+            Pathfinding();
+           if(!FindTarget())
+            {
+                return;
+            }
             
-        Pathfinding();
-        Move();
- 
-        }
+        
+            Move();
+         }
         else
         {
             return;
@@ -98,7 +99,7 @@ public class EnemySpaceMovement : MonoBehaviour
 
         if(raycastOffset != Vector3.zero)
         {
-            //Debug.Log("Il nemico ha qualcosa davanti");
+            Debug.Log("Il nemico ha qualcosa davanti");
            transform.Rotate(raycastOffset * 5f * Time.deltaTime);
         }
         else

@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7811626494840590902}
   - component: {fileID: 7811626494840590903}
   - component: {fileID: 7811626494840590900}
-  - component: {fileID: 7811626494840590901}
+  - component: {fileID: 2654224293493096348}
   m_Layer: 0
   m_Name: Trial (1)
   m_TagString: Player
@@ -264,7 +264,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7811626494840590901
+--- !u!114 &2654224293493096348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7811626494840590897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1d4b06f4f3478442b0ee5ec9151270f, type: 3}
+  m_Script: {fileID: 11500000, guid: 705ee937e920ba14c80945a81403f296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7811626494893172487
@@ -566,7 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226b0ccb9b244d84db0643b5b8d11538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trail: []
   forwardSpeed: 20
   strafeSpeed: 30
   hoverSpeed: 20
@@ -574,13 +573,17 @@ MonoBehaviour:
   rollSpeed: 90
   rollAcceleration: 3.5
   boostSpeed: 90
+  boostTimer: 0
+  boostTimerElapsed: 0
   boostAcceleration: 10
   maxBoostAmount: 2
   boostDeprecationRate: 0.25
   boostRechargeRate: 0.5
-  boostMultiplier: 5
   boosting: 0
   inputBlocked: 0
+  boostLight:
+  - {fileID: 481597163484194008}
+  - {fileID: 2654224293493096348}
 --- !u!114 &7811626495437074533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +880,7 @@ GameObject:
   - component: {fileID: 7811626495687216067}
   - component: {fileID: 7811626495687216064}
   - component: {fileID: 7811626495687216065}
-  - component: {fileID: 7811626495687216070}
+  - component: {fileID: 481597163484194008}
   m_Layer: 0
   m_Name: Trial
   m_TagString: Player
@@ -1068,7 +1071,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7811626495687216070
+--- !u!114 &481597163484194008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1077,7 +1080,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7811626495687216066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1d4b06f4f3478442b0ee5ec9151270f, type: 3}
+  m_Script: {fileID: 11500000, guid: 705ee937e920ba14c80945a81403f296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7811626495606366520
