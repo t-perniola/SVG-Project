@@ -45,8 +45,15 @@ public class MentoreScripted : MonoBehaviour{
                 //Debug.Log("Mentore is in front of the Player!");
             }                  
 
+            Vector3 playerPos = target.position;
+            Vector3 playerDirection = target.forward;            
+            float spawnDistance = 1; 
+            Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+            spawnPos.y += 1;
+            
+
             if(!isCreated && isInFrontOf) { //instantiate only once at the right time
-                Instantiate(UI);
+                GameObject windowUI = Instantiate(UI, spawnPos, target.rotation, target);                
                 isCreated = true;
             }
         }
