@@ -607,7 +607,7 @@ MonoBehaviour:
   movementSpeed: 40
   rotationalDamp: 1.25
   detectionDistance: 30
-  followingDistance: 35
+  followingDistance: 32
 --- !u!114 &1671919645754240949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 7811626495437074529, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
   laser: {fileID: 1671919644781992873}
-  distanceShip: 30
+  distanceShip: 35
   innaccuracy: 80
 --- !u!54 &1671919645754240948
 Rigidbody:
