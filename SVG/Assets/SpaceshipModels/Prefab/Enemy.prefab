@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7811626495437074529, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
-  movementSpeed: 20
+  movementSpeed: 40
   rotationalDamp: 1.25
   detectionDistance: 30
   followingDistance: 35

@@ -5,26 +5,46 @@ using UnityEngine.UI;
 
 public class SpaceUi : MonoBehaviour
 {
+    [SerializeField]GameObject gameUI;
+    [SerializeField]GameObject mainMenu;
+
+    [SerializeField]GameObject playerPrefab;
+    [SerializeField]GameObject playerStartPosition;
     bool isDisplayed = true;
-    [SerializeField]GameObject playButton;
+    
+    void Start()
+    {
+        //Da decidere
+        //ShowMainMenu();
+        ShowGameUI();
+        EventManager.StartGame();
+        
+    }
+
     void OnEnable()
     {
-        EventManager.onSpaceFightGame += HidePanel;
+        EventManager.onSpaceFightGame += ShowGameUI;
+        //EventManager.onPlayerDeath += ShowMainMenu;
     }
 
     void OnDisable()
     {
-        EventManager.onSpaceFightGame -= HidePanel;
+        EventManager.onSpaceFightGame -= ShowGameUI;
+        //EventManager.onPlayerDeath -= ShowMainMenu;
     }    
-    void HidePanel()
+  
+
+    void ShowMainMenu()
     {
-        isDisplayed = !isDisplayed;
-        playButton.SetActive(isDisplayed);
+        mainMenu.SetActive(true);
+        gameUI.SetActive(false);    
     }
 
-    public void PlayGame()
+    void ShowGameUI()
     {
-        Debug.Log("Start the Game");
-        EventManager.StartGame();
+        mainMenu.SetActive(false);
+        gameUI.SetActive(true);
+       // Instantiate(playerPrefab, playerStartPosition.transform.position, playerStartPosition.transform.rotation);
     }
+
 }
