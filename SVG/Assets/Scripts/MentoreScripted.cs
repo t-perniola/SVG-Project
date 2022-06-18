@@ -16,8 +16,8 @@ public class MentoreScripted : MonoBehaviour
     public float checkAngle;
     public Transform target;
     public GameObject UI;
-
     public Animator mAnimator;
+    public Animator pAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +40,12 @@ public class MentoreScripted : MonoBehaviour
 
         if (isMpressed)
         {
-            if (mKeyCounter == 1) //if we have pressed M once, so we want to visualize UI
+            if (mKeyCounter == 1) //if we have pressed M once, we want to visualize UI
             { 
                 if (CompareAngle())
                     InstantiateUI();
             }
-            else if (mKeyCounter == 2) //if we have pressed M twice, so we want to close UI            
+            else if (mKeyCounter == 2) //if we have pressed M twice, we want to close UI            
                 DestroyUI();            
         }
     }
@@ -55,14 +55,19 @@ public class MentoreScripted : MonoBehaviour
         Vector3 playerPos = target.position;
         Vector3 playerDirection = target.forward;
         float spawnDistance = 1;
-        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
-        spawnPos.y += 1;
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;           
+        spawnPos.y += 1;             
 
         if (!isCreated && isInFrontOf)
         { //instantiate only once at the right time
             windowUI = Instantiate(UI, spawnPos, target.rotation, target);
-            isCreated = true;
-        }
+            isCreated = true;         
+        }      
+
+        if(Input.GetKeyDown(KeyCode.I)) {
+            pAnimator.SetTrigger("UInteraction");
+        }          
+
     }
 
     void DestroyUI()

@@ -22,7 +22,7 @@ public class PanelManager : MonoBehaviour {
 		if (initiallyOpen == null)
 			return;
 
-		OpenPanel(initiallyOpen);
+		//OpenPanel(initiallyOpen);
 	}
 
 	public void OpenPanel (Animator anim)
