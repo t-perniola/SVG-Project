@@ -338,6 +338,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   debugTransf: {fileID: 522170179}
+  vfxHitted: {fileID: 8443315704496310909, guid: 6ef35fa36e3a65043b2d800600204bdd, type: 3}
+  vfxNotHitted: {fileID: 5024009746357069193, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!1 &522170176
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ public class TPScontroller : MonoBehaviour
     [SerializeField] private float aimSensitivity;    
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
     [SerializeField] private Transform debugTransf;
-    //[SerializeField] private Transform vfxHitted;    
-    //[SerializeField] private Transform vfxNotHitted;        
+    [SerializeField] private Transform vfxHitted;    
+    [SerializeField] private Transform vfxNotHitted;        
 
     private StarterAssetsInputs startAssInput;
     private ThirdPersonController tpController;
@@ -38,6 +38,9 @@ public class TPScontroller : MonoBehaviour
             debugTransf.position = raycastHit.point; 
             mousePosition = raycastHit.point;
             hitTransform = raycastHit.transform;
+        } else { 
+            mousePosition = ray.GetPoint(20f);
+            debugTransf.position = ray.GetPoint(20f);
         }
 
         if (startAssInput.aim) {        
@@ -65,11 +68,11 @@ public class TPScontroller : MonoBehaviour
             if (hitTransform != null) { // if i hit something     
 
                 if (hitTransform.GetComponent<TargetOrNot>() != null) { // we use that Script to identify a target
-                    //Instantiate(vfxHitted, transform.position, Quaternion.identity); // hit a target
+                    Instantiate(vfxHitted, mousePosition, Quaternion.identity); // hit a target
                     Debug.Log("HIT A TARGET!!");
 
                 } else { // hit something else
-                    //Instantiate(vfxNotHitted, transform.position, Quaternion.identity);
+                    Instantiate(vfxNotHitted, mousePosition, Quaternion.identity);
                     Debug.Log("HIT SOMETHING!!");
                 }
             }
