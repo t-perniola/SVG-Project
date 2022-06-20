@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 6982812147933622147}
     - target: {fileID: 875991220, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: checkAngle
-      value: 30
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 3476830599303364255, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_Name
@@ -511,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.236
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.371
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -527,19 +527,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.70710677
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000033717478
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.0384669e-14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4254775399346545701, guid: 33fd227f180be6041a9de7e9afcd550f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1524,8 +1524,8 @@ MonoBehaviour:
   Damping: {x: 0.1, y: 0.5, z: 0.3}
   ShoulderOffset: {x: 0.5, y: -0.4, z: 0}
   VerticalArmLength: 0.4
-  CameraSide: 1
-  CameraDistance: 2
+  CameraSide: 0.8
+  CameraDistance: 2.2
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 1
