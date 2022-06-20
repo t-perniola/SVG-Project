@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using StarterAssets;
 
 public class MentoreScripted : MonoBehaviour
-{
-
+{    
+    [SerializeField] private GameObject player;
+    [SerializeField] private CinemachineVirtualCamera uiCamera;
+    private Animator mAnimator;
     private Vector3 movement;
+    private StarterAssetsInputs startAssInput;
+    private Vector3 direction;
+    private GameObject windowUI;
+    private Transform target;
+    private Animator pAnimator;
     private bool isInFrontOf = false;
     private bool isMpressed = false;
-    private bool isCreated = false;
-    private Vector3 direction;
+    private bool isCreated = false;    
     private int mKeyCounter = 0;
-    private float angle;
-    private GameObject windowUI;
-    public float checkAngle;
-    public Transform target;
+    private float angle;    
+    public float checkAngle;   
     public GameObject UI;
-    public Animator mAnimator;
-    public Animator pAnimator;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //Debug.Log("Test started...");
+        mAnimator = GetComponent<Animator>();
+        pAnimator = player.GetComponent<Animator>();
+        target = player.GetComponent<Transform>();        
     }
     
     void Update()
@@ -38,15 +43,20 @@ public class MentoreScripted : MonoBehaviour
     void FixedUpdate()
     { //FixedUpdate is faster than Update while working with physics
 
+    //Transform playerCameraRoot = player.transform.GetChild(0);
+    //Vector3 uiRootPosition = playerCameraRoot.position;
+    //uiRootPosition.y = 1;
+
         if (isMpressed)
         {
             if (mKeyCounter == 1) //if we have pressed M once, we want to visualize UI
             { 
                 if (CompareAngle())
-                    InstantiateUI();
+                    InstantiateUI();                                   
+                    
             }
             else if (mKeyCounter == 2) //if we have pressed M twice, we want to close UI            
-                DestroyUI();            
+                DestroyUI();                          
         }
     }
 
@@ -61,7 +71,12 @@ public class MentoreScripted : MonoBehaviour
         if (!isCreated && isInFrontOf)
         { //instantiate only once at the right time
             windowUI = Instantiate(UI, spawnPos, target.rotation, target);
-            isCreated = true;         
+            isCreated = true;  
+
+            //camera switch
+            uiCamera.gameObject.SetActive(true); 
+            uiCamera.m_Follow = windowUI.transform;             
+                  
         }      
 
         if(Input.GetKeyDown(KeyCode.I)) {
@@ -76,6 +91,7 @@ public class MentoreScripted : MonoBehaviour
         Destroy(windowUI);
         isCreated = false;
         isInFrontOf = false;
+        uiCamera.gameObject.SetActive(false); 
     }
 
 

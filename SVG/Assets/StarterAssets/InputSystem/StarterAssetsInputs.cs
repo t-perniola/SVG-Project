@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool aim;
 		public bool shoot;
+		public bool callMentore;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -56,6 +57,11 @@ namespace StarterAssets
 			ShootInput(value.isPressed);
 		}
 
+		public void OnCallMentore(InputValue value)
+		{
+			CallInput(value.isPressed);
+		}
+
 #endif
 
 
@@ -88,6 +94,12 @@ namespace StarterAssets
 		{
 			shoot = newShootState;
 		}
+
+		public void CallInput(bool newCallState)
+		{
+			callMentore = newCallState;
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
