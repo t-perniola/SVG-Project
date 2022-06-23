@@ -9,6 +9,8 @@ public class EventManager : MonoBehaviour
     public static StartFightDelegate onPlayerDeath;
     public delegate void TakeDamageDelegate(float amt);
     public static TakeDamageDelegate onTakeDamage;
+    public delegate void ReductionBoost(float amt);
+    public static ReductionBoost redBoost;
      
 
     public static void StartGame()
@@ -30,5 +32,12 @@ public class EventManager : MonoBehaviour
         Debug.Log("Player Died");
         if(onPlayerDeath != null)
             onPlayerDeath();
+    }
+
+    public static void ReductingBoost(float percent)
+    {
+        Debug.Log("Decreasing Boost:" + percent);
+        if(redBoost != null)
+            redBoost(percent);
     }
 }

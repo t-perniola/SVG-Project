@@ -20,9 +20,11 @@ public class SC_SpaceshipController : MonoBehaviour
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
 
     private float boostInput;
-    public float boostSpeed =60f, boostTimer = 0, boostTimerElapsed = 0, boostAcceleration = 10f, maxBoostAmount = 2f, boostDeprecationRate = 0.25f, boostRechargeRate = 0.5f;
+    public float boostSpeed =60f, boostAcceleration = 10f, maxBoostAmount = 500f, curBoostAmount = 0, boostRegenerateRate = .5f;
+    int boostRechargeRate = 1;
     public bool boosting = false; 
     public bool inputBlocked = false;
+    float regenerateTime = 0;
     [SerializeField]BoostLight[] boostLight;
      
     
@@ -45,6 +47,8 @@ public class SC_SpaceshipController : MonoBehaviour
         screenCenter.y= Screen.height * .5f;
         boosting = false;
         Cursor.lockState = CursorLockMode.Confined;
+        curBoostAmount = maxBoostAmount;
+        //InvokeRepeating("RegenerateBoost", boostRegenerateRate, boostRegenerateRate);
 
     }
 
@@ -61,9 +65,8 @@ public class SC_SpaceshipController : MonoBehaviour
         
         if(Input.GetAxis("Boost")>0) {
             boosting = true;
-            boostTimerElapsed += Time.deltaTime;
             boost();
-            
+            regenerateTime = 0;
         }
         else
         {
@@ -75,8 +78,8 @@ public class SC_SpaceshipController : MonoBehaviour
             forwardSpeed = 20f;
             strafeSpeed = 20f;
             hoverSpeed = 20f;
-            boostTimer = 0;
-            boostTimerElapsed += Time.deltaTime;
+            RegenerateBoost();
+            regenerateTime += Time.deltaTime;
         }
         
 
@@ -121,14 +124,36 @@ public class SC_SpaceshipController : MonoBehaviour
         //Applicare rotazione
         transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, rollInput * rollSpeed * Time.deltaTime , Space.Self);
     }    
+    void RegenerateBoost()
+    {
+        if(regenerateTime > 4)
+        {
+          Debug.Log("Regenerating Boost");
+        
+        if(curBoostAmount < maxBoostAmount)
+         {
+            curBoostAmount += boostRechargeRate;
+         }
+        if(curBoostAmount > maxBoostAmount)
+        {
+            curBoostAmount = maxBoostAmount;
+            //CancelInvoke();
+        }
+           
 
-    public void boost()
+        EventManager.ReductingBoost(curBoostAmount / (float)maxBoostAmount);  
+        }
+        
+    }
+
+    public void boost(float boostDmg = .05f)
     { 
         if(boosting == true)
         {
-            boostTimer += Time.deltaTime;
-            if(boostTimer <= 2 && boostTimerElapsed > 4)
+            if(curBoostAmount > 0)
             {
+                curBoostAmount -= boostDmg;
+                EventManager.ReductingBoost(curBoostAmount / (float)maxBoostAmount);
                 boosting = true;
                 foreach (BoostLight bl in boostLight)
                 {
@@ -141,17 +166,13 @@ public class SC_SpaceshipController : MonoBehaviour
             else
             {
                 boosting = false;
-            forwardSpeed = 20f;
-            strafeSpeed = 20f;
-            hoverSpeed = 20f;
-            foreach (BoostLight bl in boostLight)
-                {
-                    bl.Activate(false);
-                }
-            if(boostTimerElapsed > 4)
-            {
-              boostTimerElapsed = 0;  
-            }
+                forwardSpeed = 20f;
+                strafeSpeed = 20f;
+                hoverSpeed = 20f;
+                foreach (BoostLight bl in boostLight)
+                    {
+                        bl.Activate(false);
+                    }
             }
             
         }

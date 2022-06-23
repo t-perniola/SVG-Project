@@ -7,8 +7,9 @@ public class EnemySpaceMovement : MonoBehaviour
     [SerializeField]Transform target;
     [SerializeField]float movementSpeed = 10f;
     [SerializeField]float rotationalDamp = .5f;
-    [SerializeField]float detectionDistance = 30f;
+    [SerializeField]float detectionDistance = 40f;
     [SerializeField]float followingDistance = 35f;
+    [SerializeField]float rayOffset = 4f;
     
 
     void OnEnable()
@@ -31,6 +32,8 @@ public class EnemySpaceMovement : MonoBehaviour
 
     void Update()
     {   
+        
+        
         float distance = Vector3.Distance(target.position,transform.position);
         if(distance > followingDistance)
         { 
@@ -39,12 +42,13 @@ public class EnemySpaceMovement : MonoBehaviour
             {
                 return;
             }
-            
-        
             Move();
+        
+            
          }
         else
         {
+            
             return;
         }
         
@@ -68,10 +72,10 @@ public class EnemySpaceMovement : MonoBehaviour
         RaycastHit hit;
         Vector3 raycastOffset = Vector3.zero; 
 
-        Vector3 left = transform.position - transform.right;
-        Vector3 right = transform.position + transform.right;
-        Vector3 up = transform.position + transform.up;
-        Vector3 down = transform.position - transform.up;  
+        Vector3 left = transform.position - transform.right * rayOffset;
+        Vector3 right = transform.position + transform.right * rayOffset;
+        Vector3 up = transform.position + transform.up * rayOffset;
+        Vector3 down = transform.position - transform.up * rayOffset;  
 
         Debug.DrawRay(left, transform.forward * detectionDistance, Color.cyan);
         Debug.DrawRay(right, transform.forward * detectionDistance, Color.cyan);
@@ -80,21 +84,24 @@ public class EnemySpaceMovement : MonoBehaviour
 
         if(Physics.Raycast(left, transform.forward, out hit, detectionDistance))
         {
+            Debug.Log(hit.collider);
             raycastOffset += Vector3.right;
         }
         else if(Physics.Raycast(right, transform.forward, out hit, detectionDistance))
         {
-            
+            Debug.Log(hit.collider);
             raycastOffset -= Vector3.right;
         }
 
         if(Physics.Raycast(up, transform.forward, out hit, detectionDistance))
         {
-            raycastOffset += Vector3.up;
+            Debug.Log(hit.collider);
+            raycastOffset -= Vector3.up;
         }
         else if(Physics.Raycast(down, transform.forward, out hit, detectionDistance))
         {
-            raycastOffset -= Vector3.up;
+            Debug.Log(hit.collider);
+            raycastOffset += Vector3.up;
         }
 
         if(raycastOffset != Vector3.zero)

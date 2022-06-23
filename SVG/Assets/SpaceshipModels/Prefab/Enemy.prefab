@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserOffline: 0.1
-  maxDistance: 300
+  maxDistance: 30
   fireDelay: 0.5
 --- !u!108 &1671919644781992871
 Light:
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserOffline: 0.1
-  maxDistance: 300
+  maxDistance: 30
   fireDelay: 0.5
 --- !u!108 &1671919644825127801
 Light:
@@ -566,9 +566,9 @@ GameObject:
   - component: {fileID: 1671919645754240950}
   - component: {fileID: 1671919645754240949}
   - component: {fileID: 1671919645754240948}
-  - component: {fileID: 1671919645754240946}
-  - component: {fileID: 1671919645754240947}
-  - component: {fileID: 1671919645754240945}
+  - component: {fileID: 2493435717299480772}
+  - component: {fileID: 1518081250242387373}
+  - component: {fileID: 3548286748139052602}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -607,7 +607,8 @@ MonoBehaviour:
   movementSpeed: 40
   rotationalDamp: 1.25
   detectionDistance: 30
-  followingDistance: 32
+  followingDistance: 33
+  rayOffset: 4
 --- !u!114 &1671919645754240949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1671919645754240946
+--- !u!114 &2493435717299480772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,16 +650,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671919645754240952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193c45ad372e8304faaeb28588d5c56c, type: 3}
+  m_Script: {fileID: 11500000, guid: 956ee3a8c0a989849afd21094a87548d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 2103537734369845641, guid: 7d7bc3112ba20db4c81078eb8d42efcb, type: 3}
   blowUp: {fileID: 100008, guid: 54b661f759164cb4cb9424de6a512cf8, type: 3}
   rigidBody: {fileID: 1671919645754240948}
   destroyTime: 6
-  laserHitModifier: 3
-  shield: {fileID: 1671919645754240947}
---- !u!114 &1671919645754240947
+  laserHitModifier: 0.5
+  shield: {fileID: 1518081250242387373}
+--- !u!114 &1518081250242387373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,14 +668,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671919645754240952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8131c22ca632ec54e8808c2f51f721c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 043472f757bfc454da0bf9936b75aa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 3
   curHealth: 0
-  regenerationRate: 100
+  regenerationRate: 2
   regenerateAmount: 1
---- !u!65 &1671919645754240945
+--- !u!65 &3548286748139052602
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -685,8 +686,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.71, y: 2.47, z: 9.31}
-  m_Center: {x: 0, y: 0.36, z: 0}
+  m_Size: {x: 4, y: 4, z: 9.72}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1671919645558549076
 PrefabInstance:
   m_ObjectHideFlags: 0
