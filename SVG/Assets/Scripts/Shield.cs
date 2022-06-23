@@ -8,7 +8,7 @@ public class Shield : MonoBehaviour
     [SerializeField] int curHealth;
     [SerializeField] float regenerationRate = 2f;
     [SerializeField] int regenerateAmount = 1;
-
+    [SerializeField] GameObject subject;
     void Start()
     {
         curHealth = maxHealth;
@@ -28,7 +28,7 @@ public class Shield : MonoBehaviour
             CancelInvoke();
         }
         
-        if(GameObject.FindWithTag("Player"))
+        if(subject.tag == "Player")
         {
             EventManager.TakingDamage(curHealth / (float)maxHealth);   
         }
@@ -42,7 +42,7 @@ public class Shield : MonoBehaviour
     {
         curHealth = 0;
     }
-    if(GameObject.FindWithTag("Player")){
+    if(subject.tag == "Player"){
      EventManager.TakingDamage(curHealth / (float)maxHealth);  
     }
     

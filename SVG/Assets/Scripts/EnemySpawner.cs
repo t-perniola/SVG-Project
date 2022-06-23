@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]GameObject enemyPrefab;
-    [SerializeField]GameObject clone;
     [SerializeField]float spawnTimer = 5f;
     [SerializeField]int maxEnemy = 5;
     int enemyCounter = 0;
+    GameObject temp;
+
     void Start()
     {
+        temp = enemyPrefab;
+        SpawnEnemy();
       //  StartSpawning();
     }
 
@@ -29,13 +32,13 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if(enemyPrefab!=null)
+        if(enemyPrefab != null)
         {
           Instantiate(enemyPrefab, transform.position, Quaternion.identity);  
         }
-        else
+          else
         {
-           Instantiate(clone,  transform.position, Quaternion.identity);
+           Instantiate(temp,  transform.position, Quaternion.identity);
         }
         
 
