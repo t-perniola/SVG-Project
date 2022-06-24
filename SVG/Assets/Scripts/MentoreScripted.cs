@@ -1,54 +1,112 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using StarterAssets;
 
-public class MentoreScripted : MonoBehaviour{   
-    
+public class MentoreScripted : MonoBehaviour
+{    
+    [SerializeField] private GameObject Apache;
+     [SerializeField] private GameObject playerArmature;
+    [SerializeField] private CinemachineVirtualCamera uiCamera;
+    private Animator mAnimator;
     private Vector3 movement;
-    private bool isInFrontOf = false;  
-    private bool isMpressed = false;
-    private bool isCreated = false;
+    private StarterAssetsInputs startAssInput;
     private Vector3 direction;
-    private float angle;
-    public float checkAngle;
-    public Transform target;       
+    private GameObject windowUI;
+    private Transform playerTransform;
+    private Animator playerAnim;
+    private bool isInFrontOf = false;
+    private bool isMpressed = false;
+    private bool isCreated = false;    
+    private int mKeyCounter = 0;
+    private float angle;        
+    public float checkAngle;   
     public GameObject UI;
-    public  Animator mAnimator;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Debug.Log("Test started...");
+        mAnimator = GetComponent<Animator>();
+        playerAnim = playerArmature.GetComponent<Animator>();
+        playerTransform = playerArmature.GetComponent<Transform>();        
     }
-
-    // Update is called once per frame
+    
     void Update()
-    {   
-        if(Input.GetKeyDown(KeyCode.M)) {
+    { // Update is called once per frame
+        if (Input.GetKeyDown(KeyCode.M))
+        {
             isMpressed = true;
+            mKeyCounter++;
             mAnimator.SetTrigger("PlayerCall");
-            Debug.Log("M key pressed!"); //M if we want to invoke the Mentore            
-        }        
-        
-    }
-
-    void FixedUpdate() { //FixedUpdate is faster than Update while working with physics
-       
-        direction = transform.position - target.position; //distance between this object and his target (a connecting line)            
-        angle = Vector3.Angle(transform.up, direction);  //calculates the angle between the line that connect the two objects
-                                                                // and the z-axis of this object         
-        Debug.Log("angle is: " + angle);
-        if(isMpressed) {            
-                     
-            if (angle < checkAngle ) {  //if the angle calc. is lower than a prefixed number...   
-                isInFrontOf = true;
-                //Debug.Log("Mentore is in front of the Player!");
-            }                  
-
-            if(!isCreated && isInFrontOf) { //instantiate only once at the right time
-                Instantiate(UI);
-                isCreated = true;
-            }
         }
     }
+
+    void FixedUpdate()
+    { //FixedUpdate is faster than Update while working with physics    
+
+        if (isMpressed)
+        {
+            if (mKeyCounter == 1) //if we have pressed M once, we want to visualize UI
+            { 
+                if (CompareAngle())
+                    InstantiateUI();                                   
+                    
+            }
+            else if (mKeyCounter == 2) //if we have pressed M twice, we want to close UI            
+                DestroyUI();                          
+        }
+    }
+
+    void InstantiateUI()
+    {
+        Vector3 playerPos = playerTransform.position;
+        Vector3 playerDirection = playerTransform.forward;
+        float spawnDistance = 1;
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;    
+        
+        spawnPos.y += 1; 
+        //spawnPos.x += 0.1f;                   
+
+        if (!isCreated && isInFrontOf)
+        { //instantiate only once at the right time
+            windowUI = Instantiate(UI, spawnPos, playerTransform.rotation, playerTransform);
+            isCreated = true;  
+
+            Debug.Log("created!!");
+
+            //camera switch
+            uiCamera.gameObject.SetActive(true); 
+            uiCamera.m_Follow = windowUI.transform; 
+            //uiCamera.m_LookAt = windowUI.transform; 
+                  
+        }      
+
+        if(Input.GetKeyDown(KeyCode.I)) {
+            playerAnim.SetTrigger("UInteraction");
+        }          
+
+    }
+
+    void DestroyUI()
+    {
+        mKeyCounter = 0;
+        Destroy(windowUI);
+        isCreated = false;
+        isInFrontOf = false;
+        uiCamera.gameObject.SetActive(false); 
+    }
+
+
+    bool CompareAngle()
+    {
+        direction = transform.position - playerTransform.position; //distance between this object and his target (a connecting line)            
+        angle = Vector3.Angle(transform.up, direction);  //calculates the angle between the line that connect the two objects
+                                                         // and the z-axis of this object        
+        if (angle < checkAngle)
+        {  //if the angle calc. is lower than a prefixed number...   
+            isInFrontOf = true;
+        }
+        return isInFrontOf;
+    }
+
 }
