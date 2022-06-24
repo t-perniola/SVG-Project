@@ -66,14 +66,13 @@ public class MentoreScripted : MonoBehaviour
         Vector3 playerDirection = target.forward;
         float spawnDistance = 1;
         Vector3 spawnPos = playerPos + playerDirection * spawnDistance;    
-        Quaternion playerRotation = target.rotation;
-        playerRotation = Quaternion.Euler(0,-12,0);
+        
         spawnPos.y += 1; 
         spawnPos.x += 0.1f;            
 
         if (!isCreated && isInFrontOf)
         { //instantiate only once at the right time
-            windowUI = Instantiate(UI, spawnPos, playerRotation, target);
+            windowUI = Instantiate(UI, spawnPos, target.rotation, target);
             isCreated = true;  
 
             //camera switch
