@@ -62,7 +62,7 @@ public class AIController : MonoBehaviour
         }    
         else
         {
-            //Patrolling();
+            Patrolling();
         }
     }
 

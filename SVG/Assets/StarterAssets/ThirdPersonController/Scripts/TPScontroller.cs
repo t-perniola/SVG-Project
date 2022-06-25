@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class TPScontroller : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera aimCamera;
+    [SerializeField] private GameObject gun;
     [SerializeField] private float standardSensitivity;    
     [SerializeField] private float aimSensitivity;    
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
@@ -45,7 +46,8 @@ public class TPScontroller : MonoBehaviour
         }
 
         if (startAssInput.aim) {    
-            isAiming = true;    
+            isAiming = true;
+            gun.SetActive(true);    
             aimCamera.gameObject.SetActive(true);
             tpController.SetSensitivity(aimSensitivity);
             tpController.SetRotateOnMove(false); //we do this because we decided that the player rotates only with aiming and not while moving
@@ -59,6 +61,7 @@ public class TPScontroller : MonoBehaviour
             //rotate player while aiming
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
         } else {
+            gun.SetActive(false);
             isAiming = false;
             aimCamera.gameObject.SetActive(false);
             tpController.SetSensitivity(standardSensitivity);
