@@ -7,14 +7,15 @@ TagManager:
   - Enemy
   - Asteroid
   - VirtualCamera
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Obstacles
   - 
   - 
   - 
