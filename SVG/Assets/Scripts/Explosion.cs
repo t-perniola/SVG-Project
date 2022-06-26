@@ -15,6 +15,7 @@ public class Explosion : MonoBehaviour
     //Quaternion usato per identificare rotazioni
     void IveBeenHit(Vector3 pos)
     {
+        Debug.Log("Vengo colpito");
         GameObject go = Instantiate(explosion, pos, Quaternion.identity, transform) as GameObject;
         Destroy(go, destroyTime);
 
