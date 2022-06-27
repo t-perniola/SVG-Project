@@ -77,15 +77,28 @@ public class TPScontroller : MonoBehaviour
                 if (hitTransform.GetComponent<TargetOrNot>() != null) { // we use that Script to identify a target
                     Instantiate(vfxHitted, mousePosition, Quaternion.identity); // hit a target
                     Debug.Log("HIT A TARGET!!");
+                    SpawnExplosion(raycastHit.point, raycastHit.transform);
 
                 } else { // hit something else
                     Instantiate(vfxNotHitted, mousePosition, Quaternion.identity);
                     Debug.Log("HIT SOMETHING!!");
+                    SpawnExplosion(raycastHit.point, raycastHit.transform);
                 } 
             }
             startAssInput.shoot = false;
         }
         //TODO: se si spara senza mirare, e si mira subito dopo, è come se si fosse sparato in quell'istante
         // perchè i gameObject vfx rimangono in vita per qualche istante
+
+        //Se colpisce qualcosa -> animazione esplosione
+    void SpawnExplosion(Vector3 hitPosition, Transform target)
+    {
+        Explosion temp = target.GetComponent<Explosion>();
+            if(temp != null)
+            {
+             temp.AddForce(hitPosition, transform);
+            }
+    }
+    
     }
 }
