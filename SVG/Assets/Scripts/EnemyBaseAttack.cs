@@ -19,14 +19,14 @@ public class EnemyBaseAttack : MonoBehaviour
         }
         InFront();
         HaveLineOfSight();
-        if(InFront())
+        if(InFront() && HaveLineOfSight())
         {
             FireLaser();
             Debug.Log("fire laser");
         } else
         {
             timePassed += Time.deltaTime;
-          if (timePassed > 5f)
+          if (timePassed > 20f)
             {
                  if (CloseEnought())
                   {
@@ -76,7 +76,7 @@ public class EnemyBaseAttack : MonoBehaviour
         Debug.DrawRay(laser.transform.position, direction, Color.red );
         if(Physics.Raycast(laser.transform.position, direction, out hit, laser.Distance))
         {
-            if(hit.transform.CompareTag("Player"))
+            if(hit.collider.gameObject.tag == ("Player"))
             {
                 hitPosition = hit.transform.position;
                 return true;
