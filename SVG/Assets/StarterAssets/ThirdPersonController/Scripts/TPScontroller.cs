@@ -26,6 +26,7 @@ public class TPScontroller : MonoBehaviour
         startAssInput = GetComponent<StarterAssetsInputs>();
         tpController = GetComponent<ThirdPersonController>();
         pAnimator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Update()
