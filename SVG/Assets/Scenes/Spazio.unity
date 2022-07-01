@@ -22673,6 +22673,10 @@ PrefabInstance:
       propertyPath: maxDistance
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7811626495437074528, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7811626495437074529, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
       propertyPath: m_RootOrder
       value: 5

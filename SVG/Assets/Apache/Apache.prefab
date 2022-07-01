@@ -3256,7 +3256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4137977199401307157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46200007, y: 0.44500017, z: -4.0000005}
+  m_LocalPosition: {x: 0.32000008, y: 0.6950002, z: -2.0000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7561104441209882055}
@@ -3287,7 +3287,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 500
-  field of view: 40
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6522,7 +6522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7582341174719070999
 Transform:
   m_ObjectHideFlags: 0
@@ -6531,7 +6531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7582341174719070952}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.20000008, y: 0.44500017, z: -4}
+  m_LocalPosition: {x: -0.685, y: 0.6950002, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6788326893094885882}
@@ -7968,7 +7968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimCamera: {fileID: 7582341175710476669}
   gun: {fileID: 4681171622487602364}
-  standardSensitivity: 1
+  standardSensitivity: 15
   aimSensitivity: 0.5
   aimColliderLayerMask:
     serializedVersion: 2
