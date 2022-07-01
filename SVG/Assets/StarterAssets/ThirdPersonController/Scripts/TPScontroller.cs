@@ -76,7 +76,7 @@ public class TPScontroller : MonoBehaviour
         if (startAssInput.shoot && isAiming) { // u can shoot only if ur aiming
             
             if (hitTransform != null) { // if i hit something     
-                AudioSource.PlayClipAtPoint(shoot, transform.TransformPoint(_controller.center), ShootAudioVolume);
+                AudioSource.PlayClipAtPoint(shoot, transform.position, ShootAudioVolume);
 
                 if (hitTransform.GetComponent<TargetOrNot>() != null) { // we use that Script to identify a target
                     Instantiate(vfxHitted, mousePosition, Quaternion.identity); // hit a target
