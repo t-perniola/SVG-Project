@@ -14,7 +14,9 @@ public class TPScontroller : MonoBehaviour
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
     [SerializeField] private Transform debugTransf;
     [SerializeField] private Transform vfxHitted;    
-    [SerializeField] private Transform vfxNotHitted;        
+    [SerializeField] private Transform vfxNotHitted;  
+    public AudioClip shoot;    
+    [Range(0, 1)] public float ShootAudioVolume = 0.5f; 
 
     private bool isAiming = false;
     private StarterAssetsInputs startAssInput;
@@ -74,6 +76,7 @@ public class TPScontroller : MonoBehaviour
         if (startAssInput.shoot && isAiming) { // u can shoot only if ur aiming
             
             if (hitTransform != null) { // if i hit something     
+                AudioSource.PlayClipAtPoint(shoot, transform.TransformPoint(_controller.center), ShootAudioVolume);
 
                 if (hitTransform.GetComponent<TargetOrNot>() != null) { // we use that Script to identify a target
                     Instantiate(vfxHitted, mousePosition, Quaternion.identity); // hit a target
