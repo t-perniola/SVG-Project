@@ -12,15 +12,22 @@ public class EnemyBaseAttack : MonoBehaviour
     Vector3 hitPositionrandom;
     float timePassed = 0f;
     public float innaccuracy = 0.9f;
+    private Animator animator;
 
+    void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     void Update(){
         if(!FindTarget()){
+            animator.SetBool("Aiming",false);
             return;
         }
         InFront();
         HaveLineOfSight();
         if(InFront() && HaveLineOfSight())
         {
+            animator.SetBool("Aiming", true);
             FireLaser();
             Debug.Log("fire laser");
         } else

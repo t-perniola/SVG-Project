@@ -22,6 +22,8 @@ public class AIController : MonoBehaviour
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
 
+    private Animator animator;
+
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
 
@@ -40,6 +42,7 @@ public class AIController : MonoBehaviour
         m_CaughtPlayer = false;
         m_PlayerInRange = false;
         m_WaitTime = startWaitTime;
+        animator = GetComponentInChildren<Animator>();
         m_TimeToRotate = timeToRotate;
 
         m_CurrentWaypointIndex = 0;
@@ -59,10 +62,12 @@ public class AIController : MonoBehaviour
         if (!m_IsPatrol)
         {
             Chasing();
+            animator.SetBool("Awake", true);
         }    
         else
         {
             Patrolling();
+            animator.SetBool("Awake", false);
         }
     }
 
@@ -97,6 +102,7 @@ public class AIController : MonoBehaviour
             if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position)>= 2.5f)
                 {
                     Stop();
+                    animator.SetBool("Awake", false);
                     m_WaitTime -= Time.deltaTime;
                 }
             }
