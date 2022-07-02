@@ -60132,6 +60132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 4103906883162732792, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 771326386}
     - target: {fileID: 5265311945745079361, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: playerTransform
       value: 
@@ -60169,6 +60173,5 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 7232924838885660035, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
-    - {fileID: 7232924838885660037, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}

@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 2366462998518247440}
   - component: {fileID: 7232924838885660035}
   - component: {fileID: 5265311945745079361}
-  - component: {fileID: 7232924838885660037}
+  - component: {fileID: 4103906883162732792}
   - component: {fileID: 7232924838885660039}
   - component: {fileID: 7232924838885660041}
   - component: {fileID: 7232924838885660043}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2366462998510846854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ddb7dc05cfa194449f0cbfa3a4f80d0, type: 3}
   m_Name: 
@@ -276,36 +276,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   agent: {fileID: 7232924838885660041}
---- !u!114 &7232924838885660037
+  maxTime: 1
+  maxDistance: 1
+--- !u!114 &4103906883162732792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2366462998510846854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f873cff7c5cf3c47b02faa191f7d21b, type: 3}
+  m_Script: {fileID: 11500000, guid: 207b8c3db1c35eb4da7299f66f8f63e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 7232924838885660041}
-  startWaitTime: 4
-  timeToRotate: 2
-  speedWalk: 4
-  speedRun: 6
-  viewRadius: 30.7
-  viewAngle: 120.1
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
-  waypoints:
-  - {fileID: 0}
+  head: {fileID: 0}
+  lookAtTargetPosition: {x: 0, y: 0, z: 0}
+  lookAtCoolTime: 0.2
+  lookAtHeatTime: 0.2
+  looking: 1
 --- !u!114 &7232924838885660039
 MonoBehaviour:
   m_ObjectHideFlags: 0
