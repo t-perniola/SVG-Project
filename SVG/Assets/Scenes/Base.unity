@@ -75088,6 +75088,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8647390967820317980, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
+      propertyPath: FootstepAudioVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8647390967820317981, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: m_Height
       value: 2.29
