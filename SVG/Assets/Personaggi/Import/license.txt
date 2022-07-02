@@ -1,0 +1,11 @@
+Model Information:
+* title:	D.S.S. Harbinger battle cruiser
+* source:	https://sketchfab.com/3d-models/dss-harbinger-battle-cruiser-474f62d00ed54212b37f93ce91569c53
+* author:	Comrade1280 (https://sketchfab.com/comrade1280)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "D.S.S. Harbinger battle cruiser" (https://sketchfab.com/3d-models/dss-harbinger-battle-cruiser-474f62d00ed54212b37f93ce91569c53) by Comrade1280 (https://sketchfab.com/comrade1280) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
