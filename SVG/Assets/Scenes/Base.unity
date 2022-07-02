@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10577013, g: 0.11611784, b: 0.25402585, a: 1}
+  m_IndirectSpecularColor: {r: 0.10580734, g: 0.11614851, b: 0.25415605, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -44450,7 +44450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1122054370
 RectTransform:
   m_ObjectHideFlags: 0
@@ -75003,6 +75003,14 @@ PrefabInstance:
     - target: {fileID: 6788326892100285333, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: ShoulderOffset.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788326893094885886, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
+      propertyPath: CameraDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788326893094885886, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
+      propertyPath: ShoulderOffset.x
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7582341174719070952, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: m_IsActive

@@ -7,8 +7,9 @@ using StarterAssets;
 public class MentoreScripted : MonoBehaviour
 {    
     [SerializeField] private GameObject Apache;
-     [SerializeField] private GameObject playerArmature;
+    [SerializeField] private GameObject playerArmature;
     [SerializeField] private CinemachineVirtualCamera uiCamera;
+    [SerializeField] private GameObject crosshair;
     private Animator mAnimator;
     private Vector3 movement;
     private StarterAssetsInputs startAssInput;
@@ -21,7 +22,7 @@ public class MentoreScripted : MonoBehaviour
     private bool isCreated = false;    
     private int mKeyCounter = 0;
     private float angle;        
-    public float checkAngle;   
+    private const float checkAngle = 33;   
     public GameObject UI;
 
     void Awake()
@@ -75,12 +76,14 @@ public class MentoreScripted : MonoBehaviour
         if (!isCreated && isInFrontOf)
         { //instantiate only once at the right time
             windowUI = Instantiate(UI, spawnPos, playerTransform.rotation, playerTransform);
-            Debug.Log("spawnPos: " + spawnPos + ", playerDirection: " + playerDirection + ", playerRotation: " + playerTransform.rotation);
+            //Debug.Log("spawnPos: " + spawnPos + ", playerDirection: " + playerDirection + ", playerRotation: " + playerTransform.rotation);
             isCreated = true;            
 
             //camera switch
             uiCamera.gameObject.SetActive(true); 
-            uiCamera.m_Follow = windowUI.transform;             
+            uiCamera.m_Follow = windowUI.transform;       
+
+            crosshair.SetActive(false);      
         }      
 
         if(Input.GetKeyDown(KeyCode.I)) {
@@ -96,6 +99,7 @@ public class MentoreScripted : MonoBehaviour
         isCreated = false;
         isInFrontOf = false;
         uiCamera.gameObject.SetActive(false); 
+        crosshair.SetActive(true);     
     }
 
 

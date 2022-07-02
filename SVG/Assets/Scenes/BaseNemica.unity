@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10577013, g: 0.11611784, b: 0.25402585, a: 1}
+  m_IndirectSpecularColor: {r: 0.10580734, g: 0.11614851, b: 0.25415605, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3331,11 +3331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6788326893094885886, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: CameraDistance
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6788326893094885886, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: ShoulderOffset.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6788326893094885886, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: ShoulderOffset.z
@@ -3417,6 +3417,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.5000002
       objectReference: {fileID: 0}
+    - target: {fileID: 8468038986159518603, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 749970105}
     - target: {fileID: 8468038986710790740, guid: 7eae586f94263c448a3e2796fae04d4b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -51445,7 +51449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1846054840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51481,6 +51485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e6a06c19021c043bb829e9929cb610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelIndex: 0
+  dialogUI: {fileID: 0}
 --- !u!1001 &1852654300
 PrefabInstance:
   m_ObjectHideFlags: 0
