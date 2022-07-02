@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour
+public class ShieldEnemy : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 10;
-    [SerializeField] int curHealth;
+    [SerializeField] float maxHealth = 10f;
+    [SerializeField] float curHealth = 0.0f;
     [SerializeField] float regenerationRate = 2f;
     [SerializeField] int regenerateAmount = 1;
     [SerializeField] GameObject subject;
-     
+    ShieldEnemyUI healthBar;
+    Animator animator;
 
     void Start()
     {
@@ -28,31 +29,30 @@ public class Shield : MonoBehaviour
             curHealth = maxHealth;
             CancelInvoke();
         }
-        
-        if(subject.tag == "Player")
+
+        healthBar.SetHealthBarPercentage(curHealth / maxHealth);
+        /*if(subject.tag == "Player")
         {
             EventManager.TakingDamage(curHealth / (float)maxHealth);   
-        }
+        }*/
         
     }
 
-    public void TakeDamage(int dmg = 1)
+    public void TakeDamage(float dmg = 1f)
     {
     curHealth -= dmg;
     if(curHealth < 0)
     {
         curHealth = 0;
     }
-    if(subject.tag == "Player"){
-     EventManager.TakingDamage(curHealth / (float)maxHealth);  
-    }
+    healthBar.SetHealthBarPercentage(curHealth / maxHealth);
     
     if(curHealth < 1)
     {   
         GetComponent<Explosion>().BlowUp();
         //remove life from counter 
-
-       
+        animator.SetBool("Die", true);
+        healthBar.gameObject.SetActive(false);
         Debug.Log("I died");
     }
         
@@ -61,4 +61,3 @@ public class Shield : MonoBehaviour
 
 
 }
-

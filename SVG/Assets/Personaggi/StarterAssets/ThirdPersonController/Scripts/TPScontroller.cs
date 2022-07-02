@@ -15,6 +15,7 @@ public class TPScontroller : MonoBehaviour
     [SerializeField] private Transform debugTransf;
     [SerializeField] private Transform vfxHitted;    
     [SerializeField] private Transform vfxNotHitted;  
+    
     public AudioClip shoot;    
     [Range(0, 1)] public float ShootAudioVolume = 0.5f; 
 
@@ -81,11 +82,13 @@ public class TPScontroller : MonoBehaviour
                 if (hitTransform.GetComponent<TargetOrNot>() != null) { // we use that Script to identify a target
                     Instantiate(vfxHitted, mousePosition, Quaternion.identity); // hit a target
                     Debug.Log("HIT A TARGET!!");
+                    
                     SpawnExplosion(raycastHit.point, raycastHit.transform);
 
                 } else { // hit something else
                     Instantiate(vfxNotHitted, mousePosition, Quaternion.identity);
                     Debug.Log("HIT SOMETHING!!");
+                   
                     SpawnExplosion(raycastHit.point, raycastHit.transform);
                 } 
             }
