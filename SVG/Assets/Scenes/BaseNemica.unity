@@ -13076,7 +13076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 190928, guid: d2eb17f175564e84c8ad78ac03232e29, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 190928, guid: d2eb17f175564e84c8ad78ac03232e29, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -60068,7 +60068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156517057369449110, guid: 58e12e698f87ed44cb8e36f739d95fff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e12e698f87ed44cb8e36f739d95fff, type: 3}
@@ -60094,44 +60094,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.8
+      value: 32.34
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.96
+      value: -17.89
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.4
+      value: -11.57
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8754261
+      value: 0.6491953
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.40821788
+      value: -0.31716508
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.23456968
+      value: 0.631986
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10938163
+      value: -0.28025955
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5265311945745079361, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 771326386}
     - target: {fileID: 7232924838885660035, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: target
       value: 
@@ -60148,5 +60152,23 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 771326386}
-    m_RemovedComponents: []
+    - target: {fileID: 7232924838885660041, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232924838885660041, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232924838885660041, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232924838885660041, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7232924838885660035, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+    - {fileID: 7232924838885660037, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
