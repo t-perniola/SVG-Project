@@ -62,23 +62,25 @@ public class MentoreScripted : MonoBehaviour
         Vector3 playerPos = playerTransform.position;
         Vector3 playerDirection = playerTransform.forward;
         float spawnDistance = 1;
-        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;    
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;  
         
-        spawnPos.y += 1; 
-        //spawnPos.x += 0.1f;                   
+        spawnPos.y += 1.4f; 
+
+        if(playerTransform.forward.x <= 0) {
+            spawnPos.z += 0.5f;  
+        } else {
+            spawnPos.z -= 0.5f;  
+        }                           
 
         if (!isCreated && isInFrontOf)
         { //instantiate only once at the right time
             windowUI = Instantiate(UI, spawnPos, playerTransform.rotation, playerTransform);
-            isCreated = true;  
-
-            Debug.Log("created!!");
+            Debug.Log("spawnPos: " + spawnPos + ", playerDirection: " + playerDirection + ", playerRotation: " + playerTransform.rotation);
+            isCreated = true;            
 
             //camera switch
             uiCamera.gameObject.SetActive(true); 
-            uiCamera.m_Follow = windowUI.transform; 
-            //uiCamera.m_LookAt = windowUI.transform; 
-                  
+            uiCamera.m_Follow = windowUI.transform;             
         }      
 
         if(Input.GetKeyDown(KeyCode.I)) {
