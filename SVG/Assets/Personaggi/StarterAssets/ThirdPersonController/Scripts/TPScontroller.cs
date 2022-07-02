@@ -12,7 +12,7 @@ public class TPScontroller : MonoBehaviour
     [SerializeField] private float standardSensitivity;    
     [SerializeField] private float aimSensitivity;    
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
-    [SerializeField] private Transform debugTransf;
+    //[SerializeField] private Transform debugTransf;
     [SerializeField] private Transform vfxHitted;    
     [SerializeField] private Transform vfxNotHitted;  
     public AudioClip shoot;    
@@ -40,12 +40,12 @@ public class TPScontroller : MonoBehaviour
         Transform hitTransform = null; //it is a valid target?
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask)) {
-            debugTransf.position = raycastHit.point; 
+            //debugTransf.position = raycastHit.point; 
             mousePosition = raycastHit.point;
             hitTransform = raycastHit.transform;
         } else { 
             mousePosition = ray.GetPoint(20f);
-            debugTransf.position = ray.GetPoint(20f);
+            //debugTransf.position = ray.GetPoint(20f);
         }
 
         if (startAssInput.aim) {    

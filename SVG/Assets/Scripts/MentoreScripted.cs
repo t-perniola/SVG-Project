@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class MentoreScripted : MonoBehaviour
 {    
@@ -22,14 +23,15 @@ public class MentoreScripted : MonoBehaviour
     private bool isCreated = false;    
     private int mKeyCounter = 0;
     private float angle;        
-    private const float checkAngle = 33;   
+    private const float checkAngle = 33;       
     public GameObject UI;
+
 
     void Awake()
     {
         mAnimator = GetComponent<Animator>();
         playerAnim = playerArmature.GetComponent<Animator>();
-        playerTransform = playerArmature.GetComponent<Transform>();        
+        playerTransform = playerArmature.GetComponent<Transform>();          
     }
     
     void Update()
@@ -99,7 +101,9 @@ public class MentoreScripted : MonoBehaviour
         isCreated = false;
         isInFrontOf = false;
         uiCamera.gameObject.SetActive(false); 
-        crosshair.SetActive(true);     
+        if(SceneManager.GetActiveScene().name == "BaseNemica") {
+            crosshair.SetActive(true);   
+        }  
     }
 
 
