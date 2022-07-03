@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Shield : MonoBehaviour
 {
     [SerializeField] int maxHealth = 10;
@@ -54,6 +54,11 @@ public class Shield : MonoBehaviour
 
        
         Debug.Log("I died");
+
+        if (subject.tag == "Player")
+            {
+                SceneManager.LoadScene("LoseScreen");
+            }
     }
         
     }

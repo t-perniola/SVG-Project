@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10580734, g: 0.11614851, b: 0.25415605, a: 1}
+  m_IndirectSpecularColor: {r: 0.10580366, g: 0.116083495, b: 0.25407863, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -65994,6 +65994,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2366462998510846854, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_Name
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366462998510846854, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShieldEnemy : MonoBehaviour
 {
@@ -57,6 +58,11 @@ public class ShieldEnemy : MonoBehaviour
         //animator.SetTrigger("Die");
         healthBar.gameObject.SetActive(false);
         Debug.Log("I died");
+
+        if(subject.tag == "Boss")
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
     }
         
     }
