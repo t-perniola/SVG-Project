@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class AIController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
+    public Transform playerTransform;
     public float startWaitTime = 4;
     public float timeToRotate = 2;
     public float speedWalk = 6;
@@ -18,6 +19,7 @@ public class AIController : MonoBehaviour
     public float meshResolution = 1f;
     public int edgeIterations = 4;
     public float edgeDistance = 0.5f;
+    public float maxSightDistance = 25f;
 
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
@@ -26,6 +28,7 @@ public class AIController : MonoBehaviour
 
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
+    LookAt lookAt;
 
     float m_WaitTime;
     float m_TimeToRotate;
@@ -47,7 +50,7 @@ public class AIController : MonoBehaviour
 
         m_CurrentWaypointIndex = 0;
         navMeshAgent = GetComponent<NavMeshAgent>();
-
+        lookAt = GetComponent<LookAt>();
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speedWalk;
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
@@ -58,29 +61,49 @@ public class AIController : MonoBehaviour
     void Update()
     {
         EnviromentView();
-        if (!m_IsPatrol)
+        Vector3 playerDirection = playerTransform.position - transform.position;
+
+        if (playerDirection. magnitude > maxSightDistance)
         {
-            Chasing();
-            if(navMeshAgent.hasPath) 
-                {
-                    animator.SetFloat("Speed",navMeshAgent.velocity.magnitude);
-                } 
-                else
-                {
-                    animator.SetFloat("Speed",0);
-                }
-        }    
-        else
+            return;
+        }
+
+        Vector3 agentDirection = transform.forward;
+
+        playerDirection.Normalize();
+
+        float dotProduct = Vector3.Dot(playerDirection,agentDirection);
+        if(dotProduct > 0.0f)
         {
-            Patrolling();
-            if(navMeshAgent.hasPath) 
-                {
-                    animator.SetFloat("Speed",navMeshAgent.velocity.magnitude);
-                } 
-                else
-                {
-                    animator.SetFloat("Speed",0);
-                }
+            if (lookAt)
+            {
+               lookAt.lookAtTargetPosition = navMeshAgent.steeringTarget + transform.forward; 
+            }
+            
+            if (!m_IsPatrol)
+            {
+                Chasing();
+                if(navMeshAgent.hasPath) 
+                    {
+                        animator.SetFloat("Speed",navMeshAgent.velocity.magnitude);
+                    } 
+                    else
+                    {
+                        animator.SetFloat("Speed",0);
+                    }
+            }    
+            else
+            {
+                Patrolling();
+                if(navMeshAgent.hasPath) 
+                    {
+                        animator.SetFloat("Speed",navMeshAgent.velocity.magnitude);
+                    } 
+                    else
+                    {
+                        animator.SetFloat("Speed",0);
+                    }
+            }
         }
     }
 

@@ -56,7 +56,7 @@ public class ShieldEnemy : MonoBehaviour
         GetComponent<EnemyExplosion>().BlowUp();
         //remove life from counter 
         //animator.SetTrigger("Die");
-        healthBar.gameObject.SetActive(false);
+        //healthBar.gameObject.SetActive(false);
         Debug.Log("I died");
 
         if(subject.tag == "Boss")

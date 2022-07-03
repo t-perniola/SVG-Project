@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class QuestionDialogUI : MonoBehaviour
 {
-    public int LevelIndex;
+    public String LevelIndex;
     [SerializeField] private DialogUI dialogUI;
 
     void OnTriggerEnter(Collider player)

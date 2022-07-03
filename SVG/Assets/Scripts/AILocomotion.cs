@@ -15,7 +15,7 @@ public class AILocomotion : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        lookAt = GetComponent<LookAt> ();
+        lookAt = GetComponent<LookAt>();
     }
 
     // Update is called once per frame

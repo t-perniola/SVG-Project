@@ -18850,7 +18850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e6a06c19021c043bb829e9929cb610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelIndex: 2
+  LevelIndex: Spazio
   dialogUI: {fileID: 740597607}
 --- !u!65 &642643131
 BoxCollider:
@@ -82127,7 +82127,6 @@ GameObject:
   - component: {fileID: 4217665738583737674}
   - component: {fileID: 6226305633204137905}
   - component: {fileID: 443173041150122301}
-  - component: {fileID: 4640330131708716688}
   - component: {fileID: 2519338208626334578}
   - component: {fileID: 4217665738583737677}
   - component: {fileID: 4217665738583737664}
@@ -82760,19 +82759,6 @@ Transform:
   m_Father: {fileID: 5781812218310664020}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4640330131708716688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4217665738583737665}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2992241fd57c6d346bafb8a54610a955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barRectTransform: {fileID: 0}
 --- !u!4 &4648346372857778354
 Transform:
   m_ObjectHideFlags: 0
