@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shield : MonoBehaviour
 {
@@ -52,7 +53,10 @@ public class Shield : MonoBehaviour
         GetComponent<Explosion>().BlowUp();
         //remove life from counter 
 
-       
+        if(subject.tag == "Player")
+            {
+                SceneManager.LoadScene("LoseScreen");
+            }
         Debug.Log("I died");
     }
         
