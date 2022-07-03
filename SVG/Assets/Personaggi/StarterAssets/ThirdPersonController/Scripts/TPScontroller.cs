@@ -97,7 +97,7 @@ public class TPScontroller : MonoBehaviour
         //Se colpisce qualcosa -> animazione esplosione
     void SpawnExplosion(Vector3 hitPosition, Transform target)
     {
-        Explosion temp = target.GetComponent<Explosion>();
+        EnemyExplosion temp = target.GetComponent<EnemyExplosion>();
             if(temp != null)
             {
              temp.AddForce(hitPosition, transform);
