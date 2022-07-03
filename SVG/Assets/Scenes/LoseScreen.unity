@@ -1079,7 +1079,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EXIT
+  m_Text: QUIT GAME
 --- !u!222 &2131220183
 CanvasRenderer:
   m_ObjectHideFlags: 0
