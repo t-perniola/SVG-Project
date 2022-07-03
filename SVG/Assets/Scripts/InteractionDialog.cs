@@ -9,6 +9,10 @@ public class InteractionDialog : MonoBehaviour
     [SerializeField] private string name;
     [SerializeField] private string text;
 
+    void Awake()
+    {
+        Hide();
+    }
     void OnTriggerEnter(Collider player)
     {
         interactionUI.gameObject.SetActive(true);
@@ -25,7 +29,7 @@ public class InteractionDialog : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            //Hide();
+            Hide();
             interactionUI.Text.text = "";
             interactionUI.Name.text = "";
         }
