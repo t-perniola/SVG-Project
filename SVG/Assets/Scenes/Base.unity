@@ -18850,7 +18850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e6a06c19021c043bb829e9929cb610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelIndex: 1
+  LevelIndex: 2
   dialogUI: {fileID: 740597607}
 --- !u!65 &642643131
 BoxCollider:
