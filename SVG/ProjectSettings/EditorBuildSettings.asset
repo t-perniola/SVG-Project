@@ -4,24 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Base.unity
-    guid: 174b7db707a6efc418149a9805906020
-  - enabled: 1
-    path: Assets/Scenes/Spazio.unity
-    guid: c49581556a5bba646a5cfe70b09d076b
-  - enabled: 1
-    path: Assets/Scenes/BaseNemica.unity
-    guid: 6df0c903c35fedf4ea6df2a6a1265c50
-  - enabled: 1
-    path: Assets/Scenes/LoseScreen.unity
-    guid: 9c3ece5efa6907a43af75de4153ee493
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 1e35e51d1e244034489033c42564ad4f
-  - enabled: 1
-    path: Assets/Scenes/WinScreen.unity
-    guid: c43e4caf4bc2f87459d6298cc5af9d1a
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
+  m_Scenes: []
+  m_configObjects: {}
