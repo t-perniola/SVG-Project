@@ -21,10 +21,12 @@ public class EnemyExplosion : MonoBehaviour
 
         if(shield == null)
         {
+            Debug.Log("Lo shield è nullo");
             return;
         }
         else
         {
+            Debug.Log("Lo shield prende danno");
             shield.TakeDamage();
         }
     }

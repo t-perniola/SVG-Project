@@ -21,6 +21,7 @@ public class Explosion : MonoBehaviour
 
         if(shield == null)
         {
+            Debug.Log("Lo shield è nullo");
             return;
         }
         else

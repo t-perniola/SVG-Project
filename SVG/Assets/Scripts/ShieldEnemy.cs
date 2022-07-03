@@ -15,6 +15,7 @@ public class ShieldEnemy : MonoBehaviour
     void Start()
     {
         curHealth = maxHealth;
+        healthBar = GetComponentInChildren<ShieldEnemyUI>();
         InvokeRepeating("Regenerate", regenerationRate, regenerationRate);
     } 
    
@@ -30,28 +31,30 @@ public class ShieldEnemy : MonoBehaviour
             CancelInvoke();
         }
 
-        healthBar.SetHealthBarPercentage(curHealth / maxHealth);
-        /*if(subject.tag == "Player")
-        {
-            EventManager.TakingDamage(curHealth / (float)maxHealth);   
-        }*/
+        //healthBar.SetHealthBarPercentage(curHealth / maxHealth);
+      
+            EventManager.EnemyTakingDamage(curHealth / maxHealth);   
+        
         
     }
 
     public void TakeDamage(float dmg = 1f)
     {
+    Debug.Log("Il nemico prende danno");
     curHealth -= dmg;
     if(curHealth < 0)
     {
         curHealth = 0;
     }
-    healthBar.SetHealthBarPercentage(curHealth / maxHealth);
+    
+        EventManager.EnemyTakingDamage(curHealth / maxHealth); 
+    //healthBar.SetHealthBarPercentage(curHealth / maxHealth);
     
     if(curHealth < 1)
     {   
-        GetComponent<Explosion>().BlowUp();
+        GetComponent<EnemyExplosion>().BlowUp();
         //remove life from counter 
-        animator.SetBool("Die", true);
+        //animator.SetTrigger("Die");
         healthBar.gameObject.SetActive(false);
         Debug.Log("I died");
     }
