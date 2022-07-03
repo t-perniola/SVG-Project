@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Explosion : MonoBehaviour
+public class EnemyExplosion : MonoBehaviour
 {
     [SerializeField]GameObject explosion;
     [SerializeField]GameObject blowUp;
     [SerializeField]Rigidbody rigidBody;
     [SerializeField]float destroyTime = 6f;
     [SerializeField]float laserHitModifier = 0.5f;
-    [SerializeField]Shield shield;
+    [SerializeField]ShieldEnemy shield;
     
     //Quaternion usato per identificare rotazioni
-    void IveBeenHit(Vector3 pos)
+    public void IveBeenHit(Vector3 pos)
     {
-        Debug.Log("Vengo colpito");
+        Debug.Log("Nemico colpito");
         GameObject go = Instantiate(explosion, pos, Quaternion.identity, transform) as GameObject;
         Destroy(go, destroyTime);
 
@@ -26,6 +26,7 @@ public class Explosion : MonoBehaviour
         }
         else
         {
+            Debug.Log("Lo shield prende danno");
             shield.TakeDamage();
         }
     }
@@ -35,7 +36,7 @@ public class Explosion : MonoBehaviour
     {
         foreach(ContactPoint contact in collision.contacts)
         {
-            Debug.Log("Collisione con oggetto");
+            Debug.Log("Nemico Collide con oggetto");
             IveBeenHit(contact.point);
         }
     }

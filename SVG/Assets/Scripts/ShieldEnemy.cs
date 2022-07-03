@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : MonoBehaviour
+public class ShieldEnemy : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 10;
-    [SerializeField] int curHealth;
+    [SerializeField] float maxHealth = 10f;
+    [SerializeField] float curHealth = 0.0f;
     [SerializeField] float regenerationRate = 2f;
     [SerializeField] int regenerateAmount = 1;
     [SerializeField] GameObject subject;
-     
+    ShieldEnemyUI healthBar;
+    Animator animator;
 
     void Start()
     {
         curHealth = maxHealth;
+        healthBar = GetComponentInChildren<ShieldEnemyUI>();
         InvokeRepeating("Regenerate", regenerationRate, regenerationRate);
     } 
    
@@ -28,31 +30,32 @@ public class Shield : MonoBehaviour
             curHealth = maxHealth;
             CancelInvoke();
         }
+
+        //healthBar.SetHealthBarPercentage(curHealth / maxHealth);
+      
+            EventManager.EnemyTakingDamage(curHealth / maxHealth);   
         
-        if(subject.tag == "Player")
-        {
-            EventManager.TakingDamage(curHealth / (float)maxHealth);   
-        }
         
     }
 
-    public void TakeDamage(int dmg = 1)
+    public void TakeDamage(float dmg = 1f)
     {
+    Debug.Log("Il nemico prende danno");
     curHealth -= dmg;
     if(curHealth < 0)
     {
         curHealth = 0;
     }
-    if(subject.tag == "Player"){
-     EventManager.TakingDamage(curHealth / (float)maxHealth);  
-    }
+    
+        EventManager.EnemyTakingDamage(curHealth / maxHealth); 
+    //healthBar.SetHealthBarPercentage(curHealth / maxHealth);
     
     if(curHealth < 1)
     {   
-        GetComponent<Explosion>().BlowUp();
+        GetComponent<EnemyExplosion>().BlowUp();
         //remove life from counter 
-
-       
+        //animator.SetTrigger("Die");
+        healthBar.gameObject.SetActive(false);
         Debug.Log("I died");
     }
         
@@ -61,4 +64,3 @@ public class Shield : MonoBehaviour
 
 
 }
-

@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using StarterAssets;
-using UnityEngine.SceneManagement;
 
 public class MentoreScripted : MonoBehaviour
 {    
     [SerializeField] private GameObject Apache;
-    [SerializeField] private GameObject playerArmature;
+     [SerializeField] private GameObject playerArmature;
     [SerializeField] private CinemachineVirtualCamera uiCamera;
-    [SerializeField] private GameObject crosshair;
     private Animator mAnimator;
     private Vector3 movement;
     private StarterAssetsInputs startAssInput;
@@ -23,15 +21,14 @@ public class MentoreScripted : MonoBehaviour
     private bool isCreated = false;    
     private int mKeyCounter = 0;
     private float angle;        
-    private const float checkAngle = 33;       
+    public float checkAngle;   
     public GameObject UI;
-
 
     void Awake()
     {
         mAnimator = GetComponent<Animator>();
         playerAnim = playerArmature.GetComponent<Animator>();
-        playerTransform = playerArmature.GetComponent<Transform>();          
+        playerTransform = playerArmature.GetComponent<Transform>();        
     }
     
     void Update()
@@ -65,27 +62,23 @@ public class MentoreScripted : MonoBehaviour
         Vector3 playerPos = playerTransform.position;
         Vector3 playerDirection = playerTransform.forward;
         float spawnDistance = 1;
-        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;  
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;    
         
-        spawnPos.y += 1.4f; 
-
-        if(playerTransform.forward.x <= 0) {
-            spawnPos.z += 0.5f;  
-        } else {
-            spawnPos.z -= 0.5f;  
-        }                           
+        spawnPos.y += 1; 
+        //spawnPos.x += 0.1f;                   
 
         if (!isCreated && isInFrontOf)
         { //instantiate only once at the right time
             windowUI = Instantiate(UI, spawnPos, playerTransform.rotation, playerTransform);
-            //Debug.Log("spawnPos: " + spawnPos + ", playerDirection: " + playerDirection + ", playerRotation: " + playerTransform.rotation);
-            isCreated = true;            
+            isCreated = true;  
+
+            Debug.Log("created!!");
 
             //camera switch
             uiCamera.gameObject.SetActive(true); 
-            uiCamera.m_Follow = windowUI.transform;       
-
-            crosshair.SetActive(false);      
+            uiCamera.m_Follow = windowUI.transform; 
+            //uiCamera.m_LookAt = windowUI.transform; 
+                  
         }      
 
         if(Input.GetKeyDown(KeyCode.I)) {
@@ -101,9 +94,6 @@ public class MentoreScripted : MonoBehaviour
         isCreated = false;
         isInFrontOf = false;
         uiCamera.gameObject.SetActive(false); 
-        if(SceneManager.GetActiveScene().name == "BaseNemica") {
-            crosshair.SetActive(true);   
-        }  
     }
 
 
