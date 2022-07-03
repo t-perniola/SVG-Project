@@ -8,7 +8,6 @@ TagManager:
   - Asteroid
   - VirtualCamera
   - CinemachineTarget
-  - Boss
   layers:
   - Default
   - TransparentFX

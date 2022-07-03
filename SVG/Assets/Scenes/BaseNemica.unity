@@ -66002,7 +66002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998510846854, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2366462998511345574, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: m_RootOrder
