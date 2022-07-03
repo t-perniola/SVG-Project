@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField]float timeRemaining;
     [SerializeField]Text timerText;
+    public Transform target;
     bool keepTime = false;
     void OnEnable()
     {
@@ -50,8 +51,9 @@ public class Timer : MonoBehaviour
         seconds = timeRemaining%60;
 
         timerText.text = string.Format("{0}:{1:00.00}", minutes, seconds);
+        if(timeRemaining == 0)
         {
-            
+            Explosion temp = target.GetComponent<Explosion>();
         }
 
     }

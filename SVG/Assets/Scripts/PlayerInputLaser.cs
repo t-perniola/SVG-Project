@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerInputLaser : MonoBehaviour
 {
-    [SerializeField]Laser[] laser;
+    [SerializeField]PlayerLaser[] laser;
     // Update is called once per frame
     void Update()
     {
         
         if(Input.GetMouseButtonDown(0))
         {
-            foreach(Laser l in laser)
+            foreach(PlayerLaser l in laser)
             {
                 //Vector3 pos = transform.position + (transform.forward * l.Distance);
                 l.FireLaser();
