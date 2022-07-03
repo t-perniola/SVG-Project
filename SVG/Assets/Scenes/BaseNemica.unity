@@ -26686,7 +26686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447618, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.574543
+      value: 40.191
       objectReference: {fileID: 0}
     - target: {fileID: 447618, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26694,7 +26694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447618, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.907421
+      value: -7.144
       objectReference: {fileID: 0}
     - target: {fileID: 447618, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66049,6 +66049,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8307563412026038913}
     - target: {fileID: 7232924838885660037, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232924838885660037, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: startWaitTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232924838885660037, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -66060,6 +66068,14 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 8307563412026038913}
+    - target: {fileID: 7232924838885660041, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232924838885660041, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fea6857c57b06242a16e10d1bdc9c63, type: 3}
 --- !u!1 &5330415136690825426

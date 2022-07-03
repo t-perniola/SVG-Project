@@ -52,7 +52,6 @@ public class AIController : MonoBehaviour
         navMeshAgent.speed = speedWalk;
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
 
-
     }
 
     // Update is called once per frame
@@ -62,12 +61,26 @@ public class AIController : MonoBehaviour
         if (!m_IsPatrol)
         {
             Chasing();
-            animator.SetBool("Awake", true);
+            if(navMeshAgent.hasPath) 
+                {
+                    animator.SetFloat("Speed",navMeshAgent.velocity.magnitude);
+                } 
+                else
+                {
+                    animator.SetFloat("Speed",0);
+                }
         }    
         else
         {
             Patrolling();
-            animator.SetBool("Awake", false);
+            if(navMeshAgent.hasPath) 
+                {
+                    animator.SetFloat("Speed",navMeshAgent.velocity.magnitude);
+                } 
+                else
+                {
+                    animator.SetFloat("Speed",0);
+                }
         }
     }
 
@@ -104,12 +117,12 @@ public class AIController : MonoBehaviour
                     Stop();
                     //animator.SetBool("Awake", false);
                     m_WaitTime -= Time.deltaTime;
-                }
             }
         }
     }
+    }
 
-    private void Patrolling()
+     void Patrolling()
     {
         if(m_PlayerNear)
         {
@@ -140,7 +153,7 @@ public class AIController : MonoBehaviour
                 else 
                 {
                    Stop();
-                   m_TimeToRotate -= Time.deltaTime; 
+                   m_TimeToRotate -= Time.deltaTime;
                 }
             }
         }
