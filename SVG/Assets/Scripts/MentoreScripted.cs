@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class MentoreScripted : MonoBehaviour
 {    
     [SerializeField] private GameObject Apache;
-     [SerializeField] private GameObject playerArmature;
+    [SerializeField] private GameObject playerArmature;
     [SerializeField] private CinemachineVirtualCamera uiCamera;
+    [SerializeField] private GameObject crosshair;
     private Animator mAnimator;
     private Vector3 movement;
     private StarterAssetsInputs startAssInput;
@@ -21,7 +23,7 @@ public class MentoreScripted : MonoBehaviour
     private bool isCreated = false;    
     private int mKeyCounter = 0;
     private float angle;        
-    public float checkAngle;   
+    private const float checkAngle = 33; 
     public GameObject UI;
 
     void Awake()
@@ -64,7 +66,13 @@ public class MentoreScripted : MonoBehaviour
         float spawnDistance = 1;
         Vector3 spawnPos = playerPos + playerDirection * spawnDistance;    
         
-        spawnPos.y += 1; 
+        spawnPos.y += 1.4f; 
+
+        if(playerTransform.forward.x <= 0) {
+            spawnPos.z += 0.5f;  
+        } else {
+            spawnPos.z -= 0.5f;  
+        } 
         //spawnPos.x += 0.1f;                   
 
         if (!isCreated && isInFrontOf)
@@ -78,6 +86,7 @@ public class MentoreScripted : MonoBehaviour
             uiCamera.gameObject.SetActive(true); 
             uiCamera.m_Follow = windowUI.transform; 
             //uiCamera.m_LookAt = windowUI.transform; 
+            crosshair.SetActive(false); 
                   
         }      
 
@@ -94,6 +103,9 @@ public class MentoreScripted : MonoBehaviour
         isCreated = false;
         isInFrontOf = false;
         uiCamera.gameObject.SetActive(false); 
+        if(SceneManager.GetActiveScene().name == "BaseNemica") {
+            crosshair.SetActive(true);   
+        }   
     }
 
 
