@@ -20,19 +20,62 @@ Attualmente è disponibile solo una demo del progetto scaricabile nella seguente
 # Indice
 
 - [Come iniziare](#come-iniziare)
+  - [Come installare](#come-installare)
+  - [Tutorial e comandi](#tutorial-e-comandi)
+    - [Lista dei comandi](#lista-dei-comandi)
+  - [Documentazione](#documentazione)
+  - [Game Design Document](#game-design-document)
 - [Struttura del progetto](#struttura-del-progetto)
+  - [Segnalazione bug e miglioramenti](#segnalazione-bug-e-miglioramenti)
 - [Manutenzione](#manutenzione)
 - [Licenza](#licenza)
+  - [Autori](#autori)
+  - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
 
 # Come iniziare
 
 ## Come installare
+Per provare la demo basta scaricare il file .rar contenuto nella sezione Releases, decomprimerlo e avviare l'eseguibile.
+
 Per eseguire la demo utilizzando Unity occorre clonare la repository sul proprio computer ed aprirla in locale.
 
 > **Nota**: la demo è stata realizzata con la versione 2020.3.32f1 di Unity
 
+## Tutorial e comandi
+La demo si articola in 3 fasi con 3 meccaniche di gioco principali che si susseguiranno automaticamente al completamento di alcune attività:
+
+1. Fase esplorativa: interagire con il computer con schermo verde presente nell'officina
+2. Fase TPS mounted (su navicella): raggiungere l'obiettivo con scritto "Entrata" nel tempo limite
+3. Fase TPS ranged (con armi da fuoco): sconfiggere tutti i nemici e il boss al piano superiore nella zona sinistra del corridoio
+
+### Lista dei comandi
+```
+--- Fase esplorativa ---
+Movimento giocatore: WASD
+Movimento telecamera: MOUSE
+Sprint: SHIFT SX
+Salto: SPACEBAR
+Interazione mentore: M (funzioni interne non implementate)
+
+--- Fase TPS mounted ---
+Movimento navicella: WAS
+Rotazione destra: E
+Rotazione sinistra: Q
+Movimento telecamera: MOUSE
+Sprint: SHIFT SX
+Sparare: CLICK SX
+
+--- Fase TPS ranged ---
+Movimento giocatore: WASD
+Movimento telecamera: MOUSE
+Sprint: SHIFT SX
+Salto: SPACEBAR
+Mirare: CLICK DX
+Sparare: CLICK SX
+```
+
 ## Documentazione
-### Game Design Document (GDD)
+### Game Design Document
 Link per il documento completo: [clicca qui](https://github.com/t-perniola/SVG-Project/blob/ester3/Game%20Design%20Document.pdf)
 
 Viene riportato un riassunto di alcune sezioni del GDD
@@ -70,15 +113,13 @@ La struttura del progetto segue lo standard dei progetti realizzati in Unity. La
 |   |   |-- Sci-Fi UI
 ```
 
-## Segnalazione bug e richieste di aiuto
+## Segnalazione bug e miglioramenti
 Nel caso in cui dovesse essere presente un bug o una proposta per migliorare il progetto, è possibile creare una nuova [Issue](https://github.com/t-perniola/SVG-Project/issues/new) in questa repository.
 
 # Manutenzione
 La manutenzione del progetto è attualmente supportata dagli stessi autori.
 
 # Licenza
-
-## Licenza generale
 
 ## Autori
 - Tommaso ([GitHub](https://github.com/t-perniola))
