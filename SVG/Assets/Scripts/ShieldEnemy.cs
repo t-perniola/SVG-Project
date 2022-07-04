@@ -59,10 +59,6 @@ public class ShieldEnemy : MonoBehaviour
         //healthBar.gameObject.SetActive(false);
         Debug.Log("I died");
 
-        if(subject.tag == "Boss")
-            {
-                SceneManager.LoadScene("WinScreen");
-            }
     }
         
     }

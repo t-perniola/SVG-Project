@@ -1805,6 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Sala A
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &59596449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3810,6 +3811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Giardino
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &118384795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5606,7 +5608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: -208}
+  m_AnchoredPosition: {x: 587, y: -414}
   m_SizeDelta: {x: 70, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &184960118
@@ -6468,6 +6470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Giardino (corridoio)
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &214327783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11075,7 +11078,7 @@ RectTransform:
   m_GameObject: {fileID: 387134132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3125, y: 1.4375, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1244134065}
   - {fileID: 1806207900}
@@ -11084,7 +11087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 405}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387134134
@@ -11120,7 +11123,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'Text
+
+'
 --- !u!222 &387134135
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12906,6 +12911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Dormitorio B
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &437467894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13497,7 +13503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 432826, guid: 3f6d5a55a145f4f40bebd7d054c548f0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 432826, guid: 3f6d5a55a145f4f40bebd7d054c548f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -17450,6 +17456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Sala radar
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &601339397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31714,7 +31721,7 @@ RectTransform:
   m_GameObject: {fileID: 740597604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0.5555556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 65135706}
   - {fileID: 1001126009}
@@ -37544,11 +37551,10 @@ PrefabInstance:
     - {fileID: 7811626495437074533, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
     - {fileID: 7811626495437074534, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
     - {fileID: 7811626495437074535, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
-    - {fileID: 7811626495437074532, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
-    - {fileID: 7811626495679421025, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
+    - {fileID: 0}
     - {fileID: 7811626495679421031, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
     - {fileID: 7811626494893172491, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
-    - {fileID: 7811626494893172490, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
 --- !u!4 &908167103 stripped
 Transform:
@@ -41022,6 +41028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Sala B
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &989608973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41322,6 +41329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Officina
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &995064266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49804,7 +49812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394320405331038, guid: 328366602c7f9ae4aa29ecb957c7731d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4394320405331038, guid: 328366602c7f9ae4aa29ecb957c7731d, type: 3}
       propertyPath: m_LocalScale.z
@@ -50402,7 +50410,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -51460,6 +51468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Dormitorio A
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &1309394820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52962,6 +52971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Corridoio
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &1337846542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53658,6 +53668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Sala comandi
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &1352174124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71345,6 +71356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Mensa
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &1960430597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76536,6 +76548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Corridoio
   roomUI: {fileID: 387134132}
+  navigationName: 
 --- !u!65 &2145222840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82103,6 +82116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimCamera: {fileID: 3148156602399136043}
   gun: {fileID: 179933058114536682}
+  crosshair: {fileID: 0}
   standardSensitivity: 15
   aimSensitivity: 0.5
   aimColliderLayerMask:

@@ -7,11 +7,14 @@ public class Rooms : MonoBehaviour
 {
     public string roomName;
     public GameObject roomUI;
+    //public GameObject missionUI;
+    public string navigationName;
 
     // Start is called before the first frame update
     void Start()
     {
         roomUI.SetActive(false);
+        //missionUI.SetActive(false);
     }
 
     void OnTriggerEnter(Collider player)
@@ -19,7 +22,13 @@ public class Rooms : MonoBehaviour
         if  (player.gameObject.tag == "Player")
         {
             roomUI.SetActive(true);
+           // missionUI.SetActive(true);
             roomUI.GetComponent<Text>().text = roomName;
+            /*if(roomName == "Officina")
+            {
+                missionUI.GetComponent<Text>().text = "Sali Sopra";
+            }
+            */
         }
     }
 
@@ -28,6 +37,7 @@ public class Rooms : MonoBehaviour
         if (player.gameObject.tag == "Player")
         {
             roomUI.SetActive(false);
+            //missionUI.SetActive(false);
         }
     }
     // Update is called once per frame
