@@ -8,9 +8,14 @@ Attualmente è disponibile solo una demo del progetto scaricabile nella seguente
 
 # SVG-Project
 
+## Immagini
+![image](https://user-images.githubusercontent.com/64893048/177182375-789b0afd-bc36-45bf-a443-ebe44a0a1e9b.png)
 
-## Immagini e GIF
-<!-- aggiungere alcune schermate -->
+![image](https://user-images.githubusercontent.com/64893048/177182456-c04ee4cb-3c83-4eed-93de-b4242929d260.png)
+
+![image](https://user-images.githubusercontent.com/64893048/177182569-39da3e18-4ee3-49c5-93b9-c933e297e26d.png)
+
+![image](https://user-images.githubusercontent.com/64893048/177182745-1b836587-e3d6-4480-b2e3-389bb22bf3cb.png)
 
 # Indice
 
