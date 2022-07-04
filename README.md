@@ -33,7 +33,7 @@ Per eseguire la demo utilizzando Unity occorre clonare la repository sul proprio
 
 ## Documentazione
 ### Game Design Document (GDD)
-Link per il documento completo: [clicca qui]()
+Link per il documento completo: [clicca qui](https://github.com/t-perniola/SVG-Project/blob/ester3/Game%20Design%20Document.pdf)
 
 Viene riportato un riassunto di alcune sezioni del GDD
 
