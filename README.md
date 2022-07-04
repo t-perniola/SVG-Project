@@ -8,7 +8,6 @@ Attualmente è disponibile solo una demo del progetto scaricabile nella seguente
 
 # SVG-Project
 
-> We are simple people, we are PippoKill fags
 
 ## Immagini e GIF
 <!-- aggiungere alcune schermate -->
