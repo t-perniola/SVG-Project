@@ -1,6 +1,8 @@
 <!-- aggiungere badge -->
 [![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity)](https://unity3d.com)
 
+![image](https://user-images.githubusercontent.com/64893048/177185402-17cfb122-090e-43ff-9228-d0de409a0d02.png)
+
 # Annunci / Status del progetto
 > Status demo: completa
 
@@ -47,6 +49,8 @@ La demo si articola in 3 fasi con 3 meccaniche di gioco principali che si susseg
 1. Fase esplorativa: interagire con il computer con schermo verde presente nell'officina
 2. Fase TPS mounted (su navicella): raggiungere l'obiettivo con scritto "Entrata" nel tempo limite
 3. Fase TPS ranged (con armi da fuoco): sconfiggere tutti i nemici e il boss al piano superiore nella zona sinistra del corridoio
+
+#### Attenzione! Per uscire dal gioco bisogna utilizzare il comando Alt-F4 o terminare il processo in quando non è prevista la chiusura automatica del programma. Il programma si può chiudere unicamente nel menu iniziale all'avvio della demo.
 
 ### Lista dei comandi
 ```
