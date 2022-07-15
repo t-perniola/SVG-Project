@@ -26,6 +26,8 @@ public class SC_SpaceshipController : MonoBehaviour
     public bool inputBlocked = false;
     float regenerateTime = 0;
     [SerializeField]BoostLight[] boostLight;
+    public AudioClip shoot;    
+    [Range(0, 1)] public float ShootAudioVolume = 0.5f; 
      
     
 
@@ -152,6 +154,7 @@ public class SC_SpaceshipController : MonoBehaviour
         {
             if(curBoostAmount > 0)
             {
+                AudioSource.PlayClipAtPoint(shoot, transform.position, ShootAudioVolume);
                 curBoostAmount -= boostDmg;
                 EventManager.ReductingBoost(curBoostAmount / (float)maxBoostAmount);
                 boosting = true;

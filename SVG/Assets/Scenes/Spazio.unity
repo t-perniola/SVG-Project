@@ -21436,6 +21436,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7811626495437074531, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
+      propertyPath: shoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 31ae78c435bc10d4b9b884228142ccf3, type: 3}
+    - target: {fileID: 7811626495437074531, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
+      propertyPath: ShootAudioVolume
+      value: 0.708
+      objectReference: {fileID: 0}
     - target: {fileID: 7811626495437074533, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
       propertyPath: subject
       value: 
@@ -21444,6 +21452,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7811626495437074534, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
+      propertyPath: shoot
+      value: 
+      objectReference: {fileID: 8300000, guid: f137c96122ff42e41a14058c4d6cbf58, type: 3}
     - target: {fileID: 7811626495679421024, guid: 9905dc25dbed2bd418e6734ef64d8993, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99939084

@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Rooms : MonoBehaviour
 {
     public string roomName;
-    public GameObject roomUI;
+    public TextMeshProUGUI roomUI;
     //public GameObject missionUI;
     public string navigationName;
 
     // Start is called before the first frame update
     void Start()
     {
-        roomUI.SetActive(false);
+        roomUI.gameObject.SetActive(false);
         //missionUI.SetActive(false);
     }
 
@@ -21,9 +22,9 @@ public class Rooms : MonoBehaviour
     {
         if  (player.gameObject.tag == "Player")
         {
-            roomUI.SetActive(true);
+            roomUI.gameObject.SetActive(true);
            // missionUI.SetActive(true);
-            roomUI.GetComponent<Text>().text = roomName;
+            roomUI.text = roomName;
             /*if(roomName == "Officina")
             {
                 missionUI.GetComponent<Text>().text = "Sali Sopra";
@@ -36,7 +37,7 @@ public class Rooms : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            roomUI.SetActive(false);
+            roomUI.gameObject.SetActive(false);
             //missionUI.SetActive(false);
         }
     }

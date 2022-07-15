@@ -25,6 +25,7 @@ public class MentoreScripted : MonoBehaviour
     private float angle;        
     private const float checkAngle = 33; 
     public GameObject UI;
+    
 
     void Awake()
     {
@@ -95,6 +96,7 @@ public class MentoreScripted : MonoBehaviour
         }          
 
     }
+
 
     void DestroyUI()
     {
